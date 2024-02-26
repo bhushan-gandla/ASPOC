@@ -1,17 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { DynamicFormsModel } from './shared/dynamic-forms.model';
-import { DomSanitizer } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
-import {parse} from 'angular-html-parser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-dynamic-forms',
+  templateUrl: './dynamic-forms.component.html',
+  styleUrls: ['./dynamic-forms.component.scss']
 })
-export class AppComponent {
-  title = 'AssetShieldPOC';
+export class DynamicFormsComponent {
   importedDynamicFormsData: any = "";
   pcrFormPayLoad: {gateCode: string} = {gateCode: ""};
   formArray: any;
@@ -26,7 +23,7 @@ export class AppComponent {
   }
   
   getData(){
-    const dataUrl = "../../assets/dynamic-forms-data.json";
+    const dataUrl = "../../../assets/dynamic-forms-data.json";
     this.http.get(dataUrl).subscribe((res: any) => {
       // this.importedDynamicFormsData = res.map((item: any) => {
       //   return {
@@ -96,7 +93,4 @@ export class AppComponent {
   }
 
 
-  
-  
 }
-

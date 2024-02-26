@@ -3,32 +3,33 @@
     <div class="collapse navbar-collapse mx-5 mx-xxl-6" id="primaryNavBar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Tab 1</a>
+          <a class="nav-link" [routerLink]="['hardcoded-forms']">Hardcoded</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Tab 2</a>
+          <a class="nav-link" [routerLink]="['dynamic-forms']">Dynamic</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="page-wrapper-1">
-  <div class="container">
-    <div class="card mt-5">
-      <div class="card-body">
-
-        <button class="btn btn-primary" (click)="onFetchData()">Fetch Data</button>
-
-        <hr>
-        <h4>Output data</h4>
-        <form (ngSubmit)="onFormSubmit()" #pcrForm="ngForm">
-          <div *ngFor="let formData of importedDynamicFormsData">
-            <div class="row" [innerHTML]="formData.message"></div>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 
+
+<!-- <button class="btn btn-primary" (click)="onFetchData()">Fetch Data</button>
+
+<hr>
+<h4>Output data</h4>
+
+<form (ngSubmit)="onSubmit()" #pcrForm="ngForm">
+  <div [innerHTML]="importedDynamicFormsData"></div>
+  <button type="submit">Submit</button>
+</form> -->
+
+<!-- <form (ngSubmit)="onFormSubmit()" #pcrForm="ngForm">
+  <div *ngFor="let formData of importedDynamicFormsData">
+    <div class="row" [innerHTML]="formData.message"></div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
