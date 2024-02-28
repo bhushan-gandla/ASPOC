@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -14,7 +14,10 @@ export class DynamicFormsComponent {
   formArray: any;
   @ViewChild('pcrForm') pcrForm: NgForm;
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer){
+  constructor(private http: HttpClient, 
+              private sanitizer: DomSanitizer,
+              private elementRef: ElementRef,
+              private renderer: Renderer2){
 
   }
 
@@ -33,22 +36,37 @@ export class DynamicFormsComponent {
       // });
 
       const buttons = "<div class='form-group col-12 py-1'>" +
-      "<button type='submit' class='btn btn-primary' id='nextBtn' (click)='onFormSubmit()'>Submit <i class='fa fa-angle-right'></i></button>&#160;" +
+      "<button type='button' class='btn btn-primary' id='nextBtn' (click)='onFormSubmit($event)'>Submit </button>" +
       "</div>";
 
-      const formHtml = `<form id='dynamicForm' class='form-horizontal'  novalidate='' role='form'><div class='row'> ${this.sanitizer.bypassSecurityTrustHtml(res[0].message)} 
+      const formHtml = `<form id='dynamicForm' class='form-horizontal'  novalidate='' role='form' #pcrForm="ngForm"><div class='row'> ${res[0].message}  
       </div></form>`;
       
-      this.importedDynamicFormsData = this.sanitizer.bypassSecurityTrustHtml(formHtml);
+      this.importedDynamicFormsData = this.sanitizer.bypassSecurityTrustHtml(res[0].message);
+
+      // setTimeout(() => {
+      //   this.addEventListeners();
+      // });
 
       // this.traverseHtmlCode(this.sanitizer.bypassSecurityTrustHtml(res[0].message));
       
     });
   }
 
+  private addEventListeners(): void {
+    const formElement = this.elementRef.nativeElement.querySelector('form');
+    if (formElement) {
+      this.renderer.listen(formElement, 'submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission
+        this.onSubmit();
+      });
+    }
+  }
 
-  onSubmit(){
-    console.log(this.pcrForm);
+
+  onSubmit(): void {
+
+    console.log(this.pcrForm.value);
   }
 
   traverseHtmlCode(htmlCode: any){
@@ -90,6 +108,11 @@ export class DynamicFormsComponent {
   
     console.log(result);
 
+  }
+
+  onFormSubmit(event: any){
+    console.log("This works")
+    console.log(this.pcrForm.value);
   }
 
 

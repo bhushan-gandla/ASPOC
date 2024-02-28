@@ -11,6 +11,7 @@ export class HardcodedFormsComponent {
   @ViewChild('pcrForm') pcrForm: NgForm;
 
   onSubmit(){
+    console.log(this.pcrForm.value);
     console.log(this.pcrForm.value.emailAddress);
     console.log(this.pcrForm.value.password);
     console.log(this.pcrForm.value.checkMeOut);
