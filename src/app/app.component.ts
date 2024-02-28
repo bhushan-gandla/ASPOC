@@ -4,11 +4,19 @@ import { DynamicFormsModel } from './shared/dynamic-forms.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import {parse} from 'angular-html-parser';
+import { AsyncPipe } from '@angular/common';
+import { DynamicReactiveFormsComponent } from './forms/dynamic-reactive-forms/dynamic-reactive-forms.component';
+import { Observable } from 'rxjs/internal/Observable';
+import { QuestionBase } from './forms/dynamic-reactive-forms/question-base';
+import { QuestionService } from './forms/dynamic-reactive-forms/question.service';
 
 @Component({
+
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [AsyncPipe, DynamicReactiveFormsComponent],
 })
 export class AppComponent {
   title = 'AssetShieldPOC';
@@ -17,8 +25,11 @@ export class AppComponent {
   formArray: any;
   @ViewChild('pcrForm') pcrForm: NgForm;
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer){
 
+  questions$: Observable<QuestionBase<any>[]>;
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, service: QuestionService){
+    this.questions$ = service.getQuestions();
   }
 
   onFetchData(){
