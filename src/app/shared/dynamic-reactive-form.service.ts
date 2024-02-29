@@ -10,11 +10,7 @@ export class DynamicReactiveFormService {
 
 
   getData(){
-    const dataUrl = "../../../assets/dynamic-reactive-forms.json";
-    this.http.get(dataUrl).subscribe((formData: any) => {
-      this.formData = formData;
-      console.log(this.formData['sections']['0']['questions']);
-      return this.formData;
-    });
+    const dataUrl = "../../../assets/dynamic-reactive-forms-modified.json";
+    return this.http.get(dataUrl);
   }
 }

@@ -1,1 +1,20 @@
-<p>dynamic-reactive-forms works!</p>
+<div class="container pt-5">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Reactive Dynamic Form</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-4" *ngFor="let question of formQuestions">
+                        {{question.QuestionText}}
+                        <input class="form-control" [type]="question.FieldType" [formControlName]="question.QuestionText" [value]="question.Answers[0].AnswerId">
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
