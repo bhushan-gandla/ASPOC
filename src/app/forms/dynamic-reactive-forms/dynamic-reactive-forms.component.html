@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4 mb-4" *ngFor="let question of formQuestions">
+                    <div class="col-md-4 mb-4" *ngFor="let question of formQuestions; i as index">
                         {{question.QuestionText}}
                         <input class="form-control" [type]="question.FieldType" [formControlName]="question.QuestionText" [value]="question.Answers[0].AnswerId">
                     </div>
