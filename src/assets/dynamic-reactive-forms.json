@@ -1,0 +1,214 @@
+{
+    "formGroupTitle": "General Information",
+    "formGroupCode": "GI",
+    "sections": [
+        {
+            "sectionTitle": "General",
+            "sequenceNumber": 1,
+            "sectionCode": "GIGNRL",
+            "questions": [
+                {
+                    "id": "9EB32261-BC5B-459E-9504-170DD652CC5D",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIID1",
+                    "QuestionText": "Inspection Date 1:",
+                    "QuestionType": "QuestionAndAnswerDate",
+                    "IsRequired": true,
+                    "IsReadOnly": false,
+                    "FieldType": null,
+                    "ResponseMaxLen": null,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "27",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerDate",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" style=\"width:100% !important;\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" data-bind=\"kendoDatePicker:{value: '{{answer.AnswerText}}', format: 'MM/dd/yyyy', parseFormats: ['yyyy-MM-dd']}\"{% if Question.IsRequired %} required {% endif %} class=\"k-datepicker formdate\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %}</div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIID11",
+                            "AnswerText": "GIID11",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "BB407F53-CFE9-4831-9EAD-8FA0A886BF59",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIID2",
+                    "QuestionText": "Inspection Date 2:",
+                    "QuestionType": "QuestionAndAnswerDate",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": null,
+                    "ResponseMaxLen": null,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "28",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerDate",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" style=\"width:100% !important;\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" data-bind=\"kendoDatePicker:{value: '{{answer.AnswerText}}', format: 'MM/dd/yyyy', parseFormats: ['yyyy-MM-dd']}\"{% if Question.IsRequired %} required {% endif %} class=\"k-datepicker formdate\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %}</div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIID21",
+                            "AnswerText": "GIID21",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "EFEF3AC3-29A8-43CD-AA84-C73356FADE5E",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIII",
+                    "QuestionText": "Inspector Unique ID:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": true,
+                    "IsReadOnly": false,
+                    "FieldType": null,
+                    "ResponseMaxLen": 25,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "30",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIII",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "questionId": "GIGA",
+                    "description": "Gate Access Code",
+                    "sequenceNumber": 4
+                },
+                {
+                    "questionId": "GIKC",
+                    "description": "Key Code",
+                    "sequenceNumber": 5
+                },
+                {
+                    "questionId": "GILC",
+                    "description": "Lockbox Code",
+                    "sequenceNumber": 6
+                },
+                {
+                    "questionId": "GICRA",
+                    "description": "Corrected Address (has conditional questions)",
+                    "sequenceNumber": 7
+                },
+                {
+                    "questionId": "GIGLO",
+                    "description": "GEO Longitude",
+                    "sequenceNumber": 8
+                },
+                {
+                    "questionId": "GIGLA",
+                    "description": "GEO Latitude",
+                    "sequenceNumber": 9
+                },
+                {
+                    "questionId": "GIHO",
+                    "description": "HOA",
+                    "sequenceNumber": 10
+                },
+                {
+                    "questionId": "GIGC",
+                    "description": "Gated Community",
+                    "sequenceNumber": 11
+                },
+                {
+                    "questionId": "GIUPC",
+                    "description": "Community Information Can Be Provided (has conditional qustions)",
+                    "sequenceNumber": 12
+                },
+                {
+                    "questionId": "GISN",
+                    "description": "Supplier Notes",
+                    "sequenceNumber": 13
+                }
+            ]
+        }
+    ],
+    "html": "<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIID1\"><label for=\"GIID1\" class='col-sm-12 control-label dynamicFormLabel'>Inspection Date 1:</label><div class='controls col-xs-11'><input type=\"text\" style=\"width:100% !important;\" name=\"GIID1\" data-answerid=\"GIID11\" data-bind=\"kendoDatePicker:{value: 'GIID11', format: 'MM/dd/yyyy', parseFormats: ['yyyy-MM-dd']}\" required  class=\"k-datepicker formdate\"  > </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIID2\"><label for=\"GIID2\" class='col-sm-12 control-label dynamicFormLabel'>Inspection Date 2:</label><div class='controls col-xs-11'><input type=\"text\" style=\"width:100% !important;\" name=\"GIID2\" data-answerid=\"GIID21\" data-bind=\"kendoDatePicker:{value: 'GIID21', format: 'MM/dd/yyyy', parseFormats: ['yyyy-MM-dd']}\" class=\"k-datepicker formdate\"  > </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIII\"><label  for=\"GIII\" class='col-sm-12 control-label dynamicFormLabel'>Inspector Unique ID:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIII\" data-answerid=\"GIII\" value=\"\" required    maxlength=\"25\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIGA\"><label  for=\"GIGA\" class='col-sm-12 control-label dynamicFormLabel'>Gate Access Code:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIGA\" data-answerid=\"GIGA1\" value=\"\"   maxlength=\"40\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIKC\"><label  for=\"GIKC\" class='col-sm-12 control-label dynamicFormLabel'>Key Code:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIKC\" data-answerid=\"GIKC1\" value=\"\"   maxlength=\"40\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GILC\"><label  for=\"GILC\" class='col-sm-12 control-label dynamicFormLabel'>Lockbox Code:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GILC\" data-answerid=\"GILC1\" value=\"\"   maxlength=\"40\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GICRA\"  ><label  for=\"GICRA\" class='col-sm-12 dynamicFormTitle-1'>Corrected Address:</label><div class='controls'><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"Yes\" name=\"GICRA\" data-answerid=\"GICRA1\"  required  data-triggerId=\"GIA1_GICRA1,GIA2_GICRA1,GICI_GICRA1,GIST_GICRA1,GIZC_GICRA1,GIHW_GICRA1\"  >Yes</label></div></div><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"No\" name=\"GICRA\" data-answerid=\"GICRA2\"  required  >No</label></div></div> </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GIA1_GICRA1\"><label  for=\"GIA1\" class='col-sm-12 control-label dynamicFormLabel'>Address 1:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIA1\" data-answerid=\"GIA11\" value=\"\"   maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GIA2_GICRA1\"><label  for=\"GIA2\" class='col-sm-12 control-label dynamicFormLabel'>Address 2:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIA2\" data-answerid=\"GIA21\" value=\"\"   maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GICI_GICRA1\"><label  for=\"GICI\" class='col-sm-12 control-label dynamicFormLabel'>City:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GICI\" data-answerid=\"GICI1\" value=\"\"   maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6   hide \"  data-questionid=\"GIST_GICRA1\"><label class='col-sm-12 control-label text-end dynamicFormLabel'>State:</label><div class=' col-xs-11 controls text-end'><select id=\"1234\" class=\"form-select\" ><option selected value=\"\">Select list</option><option data-answerid=\"GIST1\" >GIST1</option> </select></div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GIZC_GICRA1\"><label  for=\"GIZC\" class='col-sm-12 control-label dynamicFormLabel'>Zip Code:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIZC\" data-answerid=\"GIZC1\" value=\"\"   maxlength=\"5\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GIHW_GICRA1\"><label  for=\"GIHW\" class='col-sm-12 control-label dynamicFormLabel'>How was Corrected Address Found:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIHW\" data-answerid=\"GIHW1\" value=\"\" required    maxlength=\"4000\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIGLO\"><label  for=\"GIGLO\" class='col-sm-12 control-label dynamicFormLabel'>GEO Longitude:</label><div class='controls col-xs-11'><input type=\"text\"  data-type=\"number\"  data-validation-number-message=\"Only Numbers\" name=\"GIGLO\" data-answerid=\"GIGLO1\" value=\"\"   maxlength=\"20\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIGLA\"><label  for=\"GIGLA\" class='col-sm-12 control-label dynamicFormLabel'>GEO Latitude:</label><div class='controls col-xs-11'><input type=\"text\"  data-type=\"number\"  data-validation-number-message=\"Only Numbers\" name=\"GIGLA\" data-answerid=\"GIGLA1\" value=\"\"   maxlength=\"20\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIHO\"  ><label  for=\"GIHO\" class='col-sm-12 dynamicFormTitle-1'>HOA:</label><div class='controls'><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"Yes\" name=\"GIHO\" data-answerid=\"GIHO1\"  required  >Yes</label></div></div><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"No\" name=\"GIHO\" data-answerid=\"GIHO2\"  required  >No</label></div></div><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"Unable To Determine\" name=\"GIHO\" data-answerid=\"GIHO3\"  required  >Unable To Determine</label></div></div> </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIGC\"  ><label  for=\"GIGC\" class='col-sm-12 dynamicFormTitle-1'>Gated Community:</label><div class='controls'><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"Yes\" name=\"GIGC\" data-answerid=\"GIGC1\"  required  >Yes</label></div></div><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"No\" name=\"GIGC\" data-answerid=\"GIGC2\"  required  >No</label></div></div> </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GIUPC\"  ><label  for=\"GIUPC\" class='col-sm-12 dynamicFormTitle-1'>Community Information Can Be Provided:</label><div class='controls'><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"Yes\" name=\"GIUPC\" data-answerid=\"GIUPC1\"  required  data-triggerId=\"GICNA_GIUPC1,GICNU_GIUPC1,GICMA_GIUPC1\"  >Yes</label></div></div><div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"No\" name=\"GIUPC\" data-answerid=\"GIUPC2\"  required  data-triggerId=\"GIUPR_GIUPC2\"  >No</label></div></div> </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GICNA_GIUPC1\"><label  for=\"GICNA\" class='col-sm-12 control-label dynamicFormLabel'>Community Name:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GICNA\" data-answerid=\"GICNA1\" value=\"\" required    maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GICNU_GIUPC1\"><label  for=\"GICNU\" class='col-sm-12 control-label dynamicFormLabel'>Community Number:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GICNU\" data-answerid=\"GICNU1\" value=\"\" required    maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GICMA_GIUPC1\"><label  for=\"GICMA\" class='col-sm-12 control-label dynamicFormLabel'>Community Address:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GICMA\" data-answerid=\"GICMA1\" value=\"\" required    maxlength=\"100\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6  hide \"  data-questionid=\"GIUPR_GIUPC2\"><label  for=\"GIUPR\" class='col-sm-12 control-label dynamicFormLabel'>Reason Community Information Cannot be Provided:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GIUPR\" data-answerid=\"GIUPR1\" value=\"\" required    maxlength=\"200\"  class=\"form-control\"  >  </div></div>\r\n\r\n<div class=\"form-group col-sm-6 \"  data-showQuestion=\"true\"  data-questionid=\"GISN\"><label  for=\"GISN\" class='col-sm-12 control-label dynamicFormLabel'>Supplier Notes:</label><div class='controls col-xs-11'><input type=\"text\"  name=\"GISN\" data-answerid=\"GISN1\" value=\"\"   maxlength=\"4000\"  class=\"form-control\"  >  </div></div>\r\n\r\n"
+}
