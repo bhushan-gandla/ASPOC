@@ -6,15 +6,47 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4 mb-4" *ngFor="let question of formQuestions; i as index">
-                        {{question.QuestionText}}
-                        <input class="form-control" [type]="question.FieldType" [formControlName]="question.QuestionText" [value]="question.Answers[0].AnswerId">
-                    </div>
+                    <ng-container *ngFor="let question of formQuestions; i as index">
+                        
+                        <ng-container *ngIf="['text', 'date', 'number'].includes(question.FieldType)">
+                            <div class="col-md-4 mb-4">
+                                <label [ngClass]="question.IsRequired? 'required-field' : '' ">{{question.QuestionText}} - {{question.QuestionId}} </label>
+                                <input class="form-control" [type]="question.FieldType" [formControlName]="question.QuestionId" [value]="question.Answers[0].AnswerId">
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="question.FieldType === 'radio'">
+                            <label [ngClass]="question.IsRequired? 'required-field' : '' ">{{question.QuestionText}} - {{question.QuestionId}}</label>
+                            <div class="col-md-4 mb-4">
+                                <ng-container  *ngFor="let radioQuestion of question['Answers']">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" [id]="radioQuestion.AnswerId" [formControlName]="question.QuestionId" [value]="radioQuestion.AnswerText" (change)="onRadioButtonChange(radioQuestion.AnswerText)" class="form-check-input">
+                                        <label [for]="radioQuestion.AnswerId"  class="form-check-label">
+                                            {{radioQuestion.AnswerText}}
+                                        </label>
+                                      </div>
+                                </ng-container>
+                            </div>
+                            <ng-container *ngFor="let radioQuestion of question['Answers']">
+                                <ng-container *ngFor="let radioBasedQuestion of radioQuestion['Questions']">
+                                    <ng-container *ngIf="addressFlag">
+                                        <div class="col-md-4 mb-4">
+                                            <label [ngClass]="radioBasedQuestion.IsRequired? 'required-field' : '' ">{{radioBasedQuestion.QuestionText}} - {{radioBasedQuestion.QuestionId}}</label>
+                                            <input class="form-control" [type]="radioBasedQuestion.FieldType" [formControlName]="radioBasedQuestion.QuestionId" >
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit" >Submit</button>
+                {{myForm.invalid}}
+                <!-- [disabled]="myForm.invalid" -->
             </div>
         </div>
     </form>
 </div>
+
+<!-- {{myForm.controls['Inspection Date 1:'].status}} -->

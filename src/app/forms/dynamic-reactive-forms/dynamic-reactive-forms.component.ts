@@ -10,6 +10,7 @@ import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form
 export class DynamicReactiveFormsComponent implements OnInit {
   // formDataJson: any;
   formQuestions: any;
+  addressFlag: boolean = false;
 
   public myForm: FormGroup = this.fb.group({});
 
@@ -28,8 +29,17 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
   createForm(questions: any){
     for(const question of questions){
-      console.log(question)
-      this.myForm.addControl(question['QuestionText'], new FormControl('', Validators.required));
+      this.myForm.addControl(question['QuestionId'], new FormControl('', Validators.required));
+
+      if(question.FieldType == 'radio'){
+        for(const radioQuestion of question['Answers']){
+          for(const radioSubQuestion of radioQuestion['Questions']){
+            // console.log(radioSubQuestion);
+            this.myForm.addControl(radioSubQuestion['QuestionId'], new FormControl('', Validators.required));
+          }
+          // this.myForm.addControl(question['QuestionId'], new FormControl('', Validators.required));
+        }
+      }
     }
     console.log(this.myForm);
     
@@ -38,5 +48,14 @@ export class DynamicReactiveFormsComponent implements OnInit {
   onSubmit(){
     // console.log(this.myForm.valid);
     console.log(this.myForm);
+  }
+
+  onRadioButtonChange(radioAddressValue: any){
+    console.log(radioAddressValue);
+    if(radioAddressValue == 'No'){
+      this.addressFlag = true;
+    }else if (radioAddressValue == 'Yes'){
+      this.addressFlag = false;
+    }
   }
 }

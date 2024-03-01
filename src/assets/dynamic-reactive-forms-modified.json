@@ -156,6 +156,427 @@
                         "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
                         "lastUpdatedBy": "1001_User"
                     }
+                },
+                {
+                    "id": "14DCC1EA-76ED-49D4-A489-161F4BA89337",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIGA",
+                    "QuestionText": "Gate Access Code:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": "number",
+                    "ResponseMaxLen": 40,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "26",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIGA1",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "0F1A8534-40F3-47E5-AB7D-D11305CD0A09",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIKC",
+                    "QuestionText": "Key Code:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": "text",
+                    "ResponseMaxLen": 40,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "90",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIKC1",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "8E509312-0214-4AF8-97B4-4BCA6431D748",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GILC",
+                    "QuestionText": "Lockbox Code:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": "text",
+                    "ResponseMaxLen": 40,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "89",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GILC1",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "F4176307-3787-4720-803B-AE002E436247",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GICRA",
+                    "QuestionText": "Corrected Address:",
+                    "QuestionType": "QuestionAndSingleAnswerRadioButton",
+                    "IsRequired": true,
+                    "IsReadOnly": false,
+                    "FieldType": "radio",
+                    "ResponseMaxLen": null,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "34",
+                    "Template": {
+                        "TemplateId": "QuestionAndSingleAnswerRadioButton",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GICRA1",
+                            "AnswerText": "Yes",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                                {
+                                    "QuestionId": "GIA1",
+                                    "QuestionText": "Address 1:",
+                                    "QuestionType": "QuestionAndAnswerText",
+                                    "IsRequired": false,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 100,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndAnswerText",
+                                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GIA11",
+                                            "AnswerText": "",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "QuestionId": "GIA2",
+                                    "QuestionText": "Address 2:",
+                                    "QuestionType": "QuestionAndAnswerText",
+                                    "IsRequired": false,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 100,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndAnswerText",
+                                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GIA21",
+                                            "AnswerText": "",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "QuestionId": "GICI",
+                                    "QuestionText": "City:",
+                                    "QuestionType": "QuestionAndAnswerText",
+                                    "IsRequired": false,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 100,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndAnswerText",
+                                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GICI1",
+                                            "AnswerText": "",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "QuestionId": "GIST",
+                                    "QuestionText": "State:",
+                                    "QuestionType": "QuestionAndSingleAnswerStateDropDown",
+                                    "IsRequired": false,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 2,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndSingleAnswerStateDropDown",
+                                        "TemplateName": "<div class=\"form-group col-sm-6  {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label class='col-sm-12 control-label text-end dynamicFormLabel'>{{Question.QuestionText}}</label><div class=' col-xs-11 controls text-end'><select id=\"1234\" class=\"form-select\" {% if Question.IsRequired %} required {% endif %}><option selected value=\"\">Select list</option>{% for answer in Question.Answers %}<option data-answerid=\"{{answer.AnswerId}}\"{% if answer.IsChosenAnswer %} selected{% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} >{{answer.AnswerText}}</option>{% endfor %} </select></div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GIST1",
+                                            "AnswerText": "GIST1",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "QuestionId": "GIZC",
+                                    "QuestionText": "Zip Code:",
+                                    "QuestionType": "QuestionAndAnswerText",
+                                    "IsRequired": false,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 5,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndAnswerText",
+                                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GIZC1",
+                                            "AnswerText": "",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "QuestionId": "GIHW",
+                                    "QuestionText": "How was Corrected Address Found:",
+                                    "QuestionType": "QuestionAndAnswerText",
+                                    "IsRequired": true,
+                                    "IsReadOnly": false,
+                                    "FieldType": "text",
+                                    "ResponseMaxLen": 4000,
+                                    "ResponseMinChoices": null,
+                                    "ResponseGroup": null,
+                                    "ExternalControlId": null,
+                                    "Template": {
+                                        "TemplateId": "QuestionAndAnswerText",
+                                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                                    },
+                                    "Answers": [
+                                        {
+                                            "AnswerId": "GIHW1",
+                                            "AnswerText": "",
+                                            "ParentId": null,
+                                            "IsChosenAnswer": false,
+                                            "AnswerValue": null,
+                                            "Questions": [
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "AnswerId": "GICRA2",
+                            "AnswerText": "No",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "367A9F2E-EA67-44C0-8009-9514BA1174DF",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIGLO",
+                    "QuestionText": "GEO Longitude:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": "number",
+                    "ResponseMaxLen": 20,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "91",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIGLO1",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
                 }
             ]
         }
