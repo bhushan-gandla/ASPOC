@@ -19,7 +19,7 @@
                             <div class="col-md-4 mb-4">
                                 <ng-container  *ngFor="let radioQuestion of question['Answers']">
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" [id]="radioQuestion.AnswerId" [formControlName]="question.QuestionId" [value]="radioQuestion.AnswerText" (change)="onRadioButtonChange(radioQuestion.AnswerText)" class="form-check-input">
+                                        <input type="radio" [id]="radioQuestion.AnswerId" [formControlName]="question.QuestionId" [value]="radioQuestion.AnswerText" (change)="onRadioButtonChange($event, question)" class="form-check-input">
                                         <label [for]="radioQuestion.AnswerId"  class="form-check-label">
                                             {{radioQuestion.AnswerText}}
                                         </label>

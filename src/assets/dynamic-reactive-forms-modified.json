@@ -577,6 +577,124 @@
                         "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
                         "lastUpdatedBy": "1001_User"
                     }
+                },
+                {
+                    "id": "BD8D5FB3-9F8F-4F05-9D2F-29D04FABB729",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIGLA",
+                    "QuestionText": "GEO Latitude:",
+                    "QuestionType": "QuestionAndAnswerText",
+                    "IsRequired": false,
+                    "IsReadOnly": false,
+                    "FieldType": "number",
+                    "ResponseMaxLen": 20,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "92",
+                    "Template": {
+                        "TemplateId": "QuestionAndAnswerText",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIGLA1",
+                            "AnswerText": "",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
+                },
+                {
+                    "id": "12B1F600-3D8B-4E93-8598-416B778D1D17",
+                    "cosmosDocType": "Question",
+                    "partitionKey": "Question",
+                    "QuestionId": "GIHO",
+                    "QuestionText": "HOA:",
+                    "QuestionType": "QuestionAndSingleAnswerRadioButton",
+                    "IsRequired": true,
+                    "IsReadOnly": false,
+                    "FieldType": "radio",
+                    "ResponseMaxLen": null,
+                    "ResponseMinChoices": null,
+                    "ResponseGroup": null,
+                    "ExternalControlId": "61",
+                    "Template": {
+                        "TemplateId": "QuestionAndSingleAnswerRadioButton",
+                        "TemplateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                    },
+                    "Answers": [
+                        {
+                            "AnswerId": "GIHO1",
+                            "AnswerText": "Yes",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        },
+                        {
+                            "AnswerId": "GIHO2",
+                            "AnswerText": "No",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        },
+                        {
+                            "AnswerId": "GIHO3",
+                            "AnswerText": "Unable To Determine",
+                            "ParentId": null,
+                            "IsChosenAnswer": false,
+                            "AnswerValue": null,
+                            "Questions": [
+                            ]
+                        }
+                    ],
+                    "tenant": {
+                        "masterClient": -1,
+                        "subClient": -1,
+                        "vendor": -1,
+                        "subContractor": -1,
+                        "servicerGroup": -1,
+                        "servicerIds": [
+                            1
+                        ],
+                        "lineofBusinessid": [
+                            3
+                        ]
+                    },
+                    "audit": {
+                        "isDeleted": false,
+                        "createdDate": "2024-02-19T04:15:44+00:00",
+                        "createdBy": "1001_User",
+                        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+                        "lastUpdatedBy": "1001_User"
+                    }
                 }
             ]
         }

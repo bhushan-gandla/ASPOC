@@ -50,12 +50,14 @@ export class DynamicReactiveFormsComponent implements OnInit {
     console.log(this.myForm);
   }
 
-  onRadioButtonChange(radioAddressValue: any){
+  onRadioButtonChange(radioAddressValue: any, radioQuestionObject: any){
     console.log(radioAddressValue);
-    if(radioAddressValue == 'No'){
-      this.addressFlag = true;
-    }else if (radioAddressValue == 'Yes'){
-      this.addressFlag = false;
-    }
+    console.log(radioQuestionObject);
+
+    // if(radioAddressValue == 'No'){
+    //   this.addressFlag = true;
+    // }else if (radioAddressValue == 'Yes'){
+    //   this.addressFlag = false;
+    // }
   }
 }
