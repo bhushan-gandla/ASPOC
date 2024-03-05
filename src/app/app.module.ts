@@ -7,13 +7,15 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HardcodedFormsComponent } from './forms/hardcoded-forms/hardcoded-forms.component';
 import { DynamicFormsComponent } from './forms/dynamic-forms/dynamic-forms.component';
 import { DynamicReactiveFormsComponent } from './forms/dynamic-reactive-forms/dynamic-reactive-forms.component';
+import { DynamicTemplateFormsComponent } from './forms/dynamic-template-forms/dynamic-template-forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HardcodedFormsComponent,
     DynamicFormsComponent,
-    DynamicReactiveFormsComponent
+    DynamicReactiveFormsComponent,
+    DynamicTemplateFormsComponent
   ],
   imports: [
     BrowserModule,
