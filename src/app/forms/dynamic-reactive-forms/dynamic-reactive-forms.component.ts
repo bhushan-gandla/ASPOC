@@ -10,6 +10,7 @@ import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form
 export class DynamicReactiveFormsComponent implements OnInit {
   // formDataJson: any;
   formQuestions: any;
+  radioSubQuestionObject: any;
   addressFlag: boolean = false;
 
   public myForm: FormGroup = this.fb.group({});
@@ -50,10 +51,17 @@ export class DynamicReactiveFormsComponent implements OnInit {
     console.log(this.myForm);
   }
 
-  onRadioButtonChange(radioAddressValue: any, radioQuestionObject: any){
-    console.log(radioAddressValue);
-    console.log(radioQuestionObject);
-
+  onRadioButtonChange(radioAddressValue: any, radioSubQuestionObject: any){
+    console.log(radioSubQuestionObject);
+    for(const radioQuestions of radioSubQuestionObject.Answers){
+      if(radioQuestions.Questions.length !== 0){
+        this.radioSubQuestionObject = radioQuestions.Questions;
+        console.log(this.radioSubQuestionObject);
+      }else if (radioQuestions.Questions.length === 0){
+        // this.radioSubQuestionObject = [];
+      }
+    }
+    // this.myForm.addControl(this.radioSubQuestionObject.QuestionId, new FormControl('', Validators.required));
     // if(radioAddressValue == 'No'){
     //   this.addressFlag = true;
     // }else if (radioAddressValue == 'Yes'){

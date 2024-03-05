@@ -26,15 +26,11 @@
                                       </div>
                                 </ng-container>
                             </div>
-                            <ng-container *ngFor="let radioQuestion of question['Answers']">
-                                <ng-container *ngFor="let radioBasedQuestion of radioQuestion['Questions']">
-                                    <ng-container *ngIf="addressFlag">
-                                        <div class="col-md-4 mb-4">
-                                            <label [ngClass]="radioBasedQuestion.IsRequired? 'required-field' : '' ">{{radioBasedQuestion.QuestionText}} - {{radioBasedQuestion.QuestionId}}</label>
-                                            <input class="form-control" [type]="radioBasedQuestion.FieldType" [formControlName]="radioBasedQuestion.QuestionId" >
-                                        </div>
-                                    </ng-container>
-                                </ng-container>
+                            <ng-container *ngFor="let radioSubQuestion of radioSubQuestionObject">
+                                <div class="col-md-4 mb-4">
+                                    <label [ngClass]="radioSubQuestion.IsRequired? 'required-field' : '' ">{{radioSubQuestion.QuestionText}} - {{radioSubQuestion.QuestionId}}</label>
+                                    <input class="form-control" [type]="radioSubQuestion.FieldType" [formControlName]="radioSubQuestion.QuestionId" >
+                                </div>
                             </ng-container>
                         </ng-container>
                     </ng-container>
