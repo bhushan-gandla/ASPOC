@@ -63,9 +63,10 @@ export class DynamicReactiveFormsComponent implements OnInit {
     console.log(this.myForm);
   }
 
-  onRadioButtonChange(subRootQuestionIndex: any, rootQuestionObject: any, subRootQuestionIdInput: any){
+  onRadioButtonChange(subRootQuestionIndex: any, subRootQuestionObject: any, subRootQuestionIdInput: any){
+    console.log(subRootQuestionObject);
     // for creating and pushing sub questions
-    for(const questionObjectAnswer of rootQuestionObject.Answers){
+    for(const questionObjectAnswer of subRootQuestionObject){
 
       // console.log(questionObjectAnswer.AnswerId);
       // console.log(questionObjectAnswer);
@@ -77,16 +78,16 @@ export class DynamicReactiveFormsComponent implements OnInit {
         questionObjectAnswer.IsChosenAnswer = false;
       }
       
-      for(const subRootQuestionObject of questionObjectAnswer.Questions){
+      for(const subRootQuestionObject1 of questionObjectAnswer.Questions){
         // add controls on html and component class if we find inner Question object filled with sub questions
         if(questionObjectAnswer.Questions && questionObjectAnswer.AnswerId === subRootQuestionIdInput){
           subRootQuestionIndex++;
   
           // adding new form controls to the myForm
-          this.myForm.addControl(subRootQuestionObject['QuestionId'], new FormControl('Addresses', Validators.required));
+          this.myForm.addControl(subRootQuestionObject1['QuestionId'], new FormControl('Addresses', Validators.required));
   
           // adding new objects to formQuestions array
-          this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject);
+          this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject1);
         }
       }
 
@@ -94,21 +95,21 @@ export class DynamicReactiveFormsComponent implements OnInit {
       // for removing sub questions
       if(questionObjectAnswer.IsChosenAnswer === true && questionObjectAnswer.Questions.length == 0 ){
         
-        for(const questionObjectAnswer of rootQuestionObject.Answers){
+        for(const questionObjectAnswer of subRootQuestionObject){
           // finding which subRootQ-1 has nested subRootQ-2 
           if(questionObjectAnswer.Questions.length > 0){
 
             // looping through subRootQ-2
-            for(const subRootQuestionObject of questionObjectAnswer.Questions){
+            for(const subRootQuestionObject1 of questionObjectAnswer.Questions){
 
-              console.log(subRootQuestionObject.QuestionId);
+              console.log(subRootQuestionObject1.QuestionId);
 
-              const index = this.formQuestions.findIndex((item: any) => item.QuestionId === subRootQuestionObject.QuestionId);
+              const index = this.formQuestions.findIndex((item: any) => item.QuestionId === subRootQuestionObject1.QuestionId);
               if (index !== -1) {
                 // removing subRootQ-2 from formQuestions array
                 this.formQuestions.splice(index, 1);
                 // removing subRootQ-2 from myForm 
-                this.myForm.removeControl(subRootQuestionObject.QuestionId);
+                this.myForm.removeControl(subRootQuestionObject1.QuestionId);
               }
 
 
