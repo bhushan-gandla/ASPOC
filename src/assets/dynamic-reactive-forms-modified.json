@@ -16,7 +16,7 @@
                     "QuestionType": "QuestionAndAnswerDate",
                     "IsRequired": true,
                     "IsReadOnly": false,
-                    "FieldType": "text",
+                    "FieldType": "date",
                     "ResponseMaxLen": null,
                     "ResponseMinChoices": null,
                     "ResponseGroup": null,
