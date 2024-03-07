@@ -80,8 +80,11 @@ export class DynamicReactiveFormsComponent implements OnInit {
       }
       
       for(const subRootQuestionObject1 of questionObjectAnswer.questions){
-        // add controls on html and component class if we find inner Question object filled with sub questions
-        if(questionObjectAnswer.questions && questionObjectAnswer.answerId === subRootQuestionIdInput && questionObjectAnswer.isChosenAnswer === true){
+
+        // if selected object is true we are adding question objects
+        if(questionObjectAnswer.isChosenAnswer === true && questionObjectAnswer.answerId === subRootQuestionIdInput){
+          // add controls on html and component class if we find inner Question object filled with sub questions
+
           subRootQuestionIndex++;
   
           // adding new form controls to the myForm
@@ -89,39 +92,21 @@ export class DynamicReactiveFormsComponent implements OnInit {
   
           // adding new objects to formQuestions array
           this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject1);
+
+      
         }
-      }
 
-
-      // for removing sub questions
-      if(questionObjectAnswer.isChosenAnswer === true && questionObjectAnswer.questions.length == 0 ){
-        
-        for(const questionObjectAnswer of subRootQuestionObject){
-
-          console.log(questionObjectAnswer);
-
-          // finding which subRootQ-1 has nested subRootQ-2 
-          if(questionObjectAnswer.questions.length > 0){
-
-            // looping through subRootQ-2
-            for(const subRootQuestionObject1 of questionObjectAnswer.questions){
-
-              // console.log(subRootQuestionObject1.questionId);
-
-              const index = this.formQuestions.findIndex((item: any) => item.questionId === subRootQuestionObject1.questionId);
-              if (index !== -1) {
-                // removing subRootQ-2 from formQuestions array
-                this.formQuestions.splice(index, 1);
-                // removing subRootQ-2 from myForm 
-                this.myForm.removeControl(subRootQuestionObject1.questionId);
-              }
-
-
-            }
+        // if selected object is false we are removing removing objects
+        if(questionObjectAnswer.isChosenAnswer === false){
+          const index = this.formQuestions.findIndex((item: any) => item.questionId === subRootQuestionObject1.questionId);
+          if (index !== -1) {
+            // removing subRootQ-2 from formQuestions array
+            this.formQuestions.splice(index, 1);
+            // removing subRootQ-2 from myForm 
+            this.myForm.removeControl(subRootQuestionObject1.questionId);
           }
         }
       }
-      
 
     }
 
