@@ -21,7 +21,8 @@ export class DynamicReactiveFormsComponent implements OnInit {
   ngOnInit(): void {
     this.dynamicReactiveFormService.getData().subscribe((formData: any) => {
       // this.formDataJson = formData;
-      this.formQuestions = formData['sections']['0']['questions'];
+      console.log(formData);
+      this.formQuestions = formData.sections[0].questions;
       console.log(this.formQuestions);
       this.createForm(this.formQuestions);
     });
@@ -30,27 +31,27 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
   createForm(questions: any){
     for(const question of questions){
-      if(question.FieldType == 'text'){
-        this.myForm.addControl(question['QuestionId'], new FormControl('Sample text', Validators.required));
+      if(question.uiControlType == 'text'){
+        this.myForm.addControl(question.questionId, new FormControl('Sample text', Validators.required));
       }
-      if(question.FieldType == 'date'){
-        this.myForm.addControl(question['QuestionId'], new FormControl(new Date(2023, 9, 20), Validators.required));
+      if(question.uiControlType == 'date'){
+        this.myForm.addControl(question.questionId, new FormControl(new Date(2023, 9, 20), Validators.required));
       }
-      if(question.FieldType == 'number'){
-        this.myForm.addControl(question['QuestionId'], new FormControl('Sample text', Validators.required));
+      if(question.uiControlType == 'number'){
+        this.myForm.addControl(question.questionId, new FormControl('Sample text', Validators.required));
       }
 
-      if(question.FieldType == 'radio'){
-        for(const radioQuestion of question['Answers']){
+      if(question.uiControlType == 'radio'){
+        for(const radioQuestion of question.answers){
 
-          this.myForm.addControl(question['QuestionId'], new FormControl(radioQuestion['IsChosenAnswer'], Validators.required));
+          this.myForm.addControl(question.questionId, new FormControl(radioQuestion['isChosenAnswer'], Validators.required));
 
           // console.log(radioQuestion['AnswerId']);
 
-          for(const radioSubQuestion of radioQuestion['Questions']){
-            this.myForm.addControl(radioSubQuestion['QuestionId'], new FormControl('', Validators.required));
+          for(const radioSubQuestion of radioQuestion.questions){
+            this.myForm.addControl(radioSubQuestion.questionId, new FormControl('', Validators.required));
           }
-          // this.myForm.addControl(question['QuestionId'], new FormControl('', Validators.required));
+          // this.myForm.addControl(question.questionId, new FormControl('', Validators.required));
         }
       }
     }
@@ -68,23 +69,23 @@ export class DynamicReactiveFormsComponent implements OnInit {
     // for creating and pushing sub questions
     for(const questionObjectAnswer of subRootQuestionObject){
 
-      // console.log(questionObjectAnswer.AnswerId);
+      // console.log(questionObjectAnswer.answerId);
       // console.log(questionObjectAnswer);
      
       // set values to update original object with IsChoseAnswer attribute
-      if(questionObjectAnswer.AnswerId === subRootQuestionIdInput){
-        questionObjectAnswer.IsChosenAnswer = true;
+      if(questionObjectAnswer.answerId === subRootQuestionIdInput){
+        questionObjectAnswer.isChosenAnswer = true;
       }else{
-        questionObjectAnswer.IsChosenAnswer = false;
+        questionObjectAnswer.isChosenAnswer = false;
       }
       
-      for(const subRootQuestionObject1 of questionObjectAnswer.Questions){
+      for(const subRootQuestionObject1 of questionObjectAnswer.questions){
         // add controls on html and component class if we find inner Question object filled with sub questions
-        if(questionObjectAnswer.Questions && questionObjectAnswer.AnswerId === subRootQuestionIdInput){
+        if(questionObjectAnswer.questions && questionObjectAnswer.answerId === subRootQuestionIdInput && questionObjectAnswer.isChosenAnswer === true){
           subRootQuestionIndex++;
   
           // adding new form controls to the myForm
-          this.myForm.addControl(subRootQuestionObject1['QuestionId'], new FormControl('Addresses', Validators.required));
+          this.myForm.addControl(subRootQuestionObject1.questionId, new FormControl('Addresses', Validators.required));
   
           // adding new objects to formQuestions array
           this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject1);
@@ -93,32 +94,32 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
 
       // for removing sub questions
-      if(questionObjectAnswer.IsChosenAnswer === true && questionObjectAnswer.Questions.length == 0 ){
+      if(questionObjectAnswer.isChosenAnswer === true && questionObjectAnswer.questions.length == 0 ){
         
         for(const questionObjectAnswer of subRootQuestionObject){
+
+          console.log(questionObjectAnswer);
+
           // finding which subRootQ-1 has nested subRootQ-2 
-          if(questionObjectAnswer.Questions.length > 0){
+          if(questionObjectAnswer.questions.length > 0){
 
             // looping through subRootQ-2
-            for(const subRootQuestionObject1 of questionObjectAnswer.Questions){
+            for(const subRootQuestionObject1 of questionObjectAnswer.questions){
 
-              console.log(subRootQuestionObject1.QuestionId);
+              // console.log(subRootQuestionObject1.questionId);
 
-              const index = this.formQuestions.findIndex((item: any) => item.QuestionId === subRootQuestionObject1.QuestionId);
+              const index = this.formQuestions.findIndex((item: any) => item.questionId === subRootQuestionObject1.questionId);
               if (index !== -1) {
                 // removing subRootQ-2 from formQuestions array
                 this.formQuestions.splice(index, 1);
                 // removing subRootQ-2 from myForm 
-                this.myForm.removeControl(subRootQuestionObject1.QuestionId);
+                this.myForm.removeControl(subRootQuestionObject1.questionId);
               }
 
 
             }
           }
         }
-
-      }else{
-        // questionObjectAnswer.IsChosenAnswer = false;
       }
       
 

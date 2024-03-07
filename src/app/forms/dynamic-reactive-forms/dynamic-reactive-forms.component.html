@@ -8,31 +8,25 @@
                 <div class="row">
                     <ng-container *ngFor="let rootQuestion of formQuestions; index as i">
                         
-                        <ng-container *ngIf="['text', 'date', 'number'].includes(rootQuestion.FieldType)">
+                        <ng-container *ngIf="['text', 'date', 'number'].includes(rootQuestion.uiControlType)">
                             <div class="col-md-4 mb-4">
-                                <label [ngClass]="rootQuestion.IsRequired? 'required-field' : '' ">{{rootQuestion.QuestionText}} - {{rootQuestion.QuestionId}} - {{rootQuestion.Answers[0].AnswerId}} </label>
-                                <input class="form-control" [type]="rootQuestion.FieldType" [formControlName]="rootQuestion.QuestionId">
+                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{rootQuestion.questionId}}  </label>
+                                <input class="form-control" [type]="rootQuestion.uiControlType" [formControlName]="rootQuestion.questionId">
                             </div>
                         </ng-container>
-                        <ng-container *ngIf="rootQuestion.FieldType === 'radio'">
-                            <label [ngClass]="rootQuestion.IsRequired? 'required-field' : '' ">{{rootQuestion.QuestionText}} - {{rootQuestion.QuestionId}}</label>
+                        <ng-container *ngIf="rootQuestion.uiControlType === 'radio'">
+                            <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{rootQuestion.questionId}}</label>
                             <div class="col-md-4 mb-4">
-                                <ng-container  *ngFor="let radioQuestion of rootQuestion['Answers']">
+                                <ng-container  *ngFor="let radioQuestion of rootQuestion.answers">
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" [id]="radioQuestion.AnswerId" [formControlName]="rootQuestion.QuestionId" [value]="radioQuestion.AnswerText" (change)="onRadioButtonChange(i, rootQuestion['Answers'], radioQuestion.AnswerId)" class="form-check-input">
-                                        <label [for]="radioQuestion.AnswerId"  class="form-check-label">
-                                            {{radioQuestion.IsChosenAnswer}}
-                                            {{radioQuestion.AnswerText}}
+                                        <input type="radio" [id]="radioQuestion.answerId" [formControlName]="rootQuestion.questionId" [value]="radioQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion.answers, radioQuestion.answerId)" class="form-check-input">
+                                        <label [for]="radioQuestion.answerId"  class="form-check-label">
+                                            {{radioQuestion.isChosenAnswer}}
+                                            {{radioQuestion.answerText}}
                                         </label>
                                       </div>
                                 </ng-container>
                             </div>
-                            <!-- <ng-container *ngFor="let radioSubQuestion of radioSubQuestionObject">
-                                <div class="col-md-4 mb-4">
-                                    <label [ngClass]="radioSubQuestion.IsRequired? 'required-field' : '' ">{{radioSubQuestion.QuestionText}} - {{radioSubQuestion.QuestionId}}</label>
-                                    <input class="form-control" [type]="radioSubQuestion.FieldType" [formControlName]="radioSubQuestion.QuestionId" >
-                                </div>
-                            </ng-container> -->
                         </ng-container>
                     </ng-container>
                 </div>
@@ -40,10 +34,7 @@
             <div class="card-footer">
                 <button class="btn btn-primary" type="submit" >Submit</button>
                 {{myForm.invalid}}
-                <!-- [disabled]="myForm.invalid" -->
             </div>
         </div>
     </form>
 </div>
-
-<!-- {{myForm.controls['Inspection Date 1:'].status}} -->

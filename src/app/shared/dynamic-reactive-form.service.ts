@@ -10,7 +10,7 @@ export class DynamicReactiveFormService {
 
 
   getData(){
-    const dataUrl = "../../../assets/dynamic-reactive-forms-modified.json";
+    const dataUrl = "../../../assets/GI-response.json";
     return this.http.get(dataUrl);
   }
 }
