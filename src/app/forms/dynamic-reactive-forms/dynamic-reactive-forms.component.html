@@ -15,13 +15,13 @@
                             </div>
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'radio'">
-                            <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{rootQuestion.questionId}}</label>
                             <div class="col-md-4 mb-4">
+                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{rootQuestion.questionId}}</label>
                                 <ng-container  *ngFor="let radioQuestion of rootQuestion.answers">
                                     <div class="form-check form-check-inline">
                                         <input type="radio" [id]="radioQuestion.answerId" [formControlName]="rootQuestion.questionId" [value]="radioQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion.answers, radioQuestion.answerId)" class="form-check-input">
                                         <label [for]="radioQuestion.answerId"  class="form-check-label">
-                                            {{radioQuestion.isChosenAnswer}}
+                                            <!-- {{radioQuestion.isChosenAnswer}} -->
                                             {{radioQuestion.answerText}}
                                         </label>
                                       </div>

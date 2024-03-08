@@ -11,6 +11,8 @@ export class DynamicReactiveFormService {
 
   getData(){
     const dataUrl = "../../../assets/GI-response.json";
+    // const dataUrl = "../../../assets/DW-DwellingInformation.json";
+
     return this.http.get(dataUrl);
   }
 }
