@@ -10,7 +10,7 @@ import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form
 export class DynamicReactiveFormsComponent implements OnInit {
   // formDataJson: any;
   formQuestions: any;
-  subRootQuestionsArray: any = [];
+  subRootQuestionsFlatArray: any = {};
 
   public myForm: FormGroup = this.fb.group({});
 
@@ -83,8 +83,8 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
         // if selected object is true we are adding question objects
         if(questionObjectAnswer.isChosenAnswer === true && questionObjectAnswer.answerId === subRootQuestionIdInput){
-          // add controls on html and component class if we find inner Question object filled with sub questions
 
+          // add controls on html and component class if we find inner Question object filled with sub questions
           subRootQuestionIndex++;
   
           // adding new form controls to the myForm
@@ -93,7 +93,17 @@ export class DynamicReactiveFormsComponent implements OnInit {
           // adding new objects to formQuestions array
           this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject1);
 
-      
+          
+          // check if there is empty array, if it doesn't exist, create a new array 
+          if(!this.subRootQuestionsFlatArray[questionObjectAnswer.answerId]){
+            this.subRootQuestionsFlatArray[questionObjectAnswer.answerId] = [];
+          }
+
+          // do not duplicate existing subRootQuestion questionIds
+          if (!this.subRootQuestionsFlatArray[questionObjectAnswer.answerId].includes(subRootQuestionObject1.questionId)) {
+            this.subRootQuestionsFlatArray[questionObjectAnswer.answerId].push(subRootQuestionObject1.questionId);
+          }
+         
         }
 
         // if selected object is false we are removing removing objects
@@ -111,6 +121,6 @@ export class DynamicReactiveFormsComponent implements OnInit {
     }
 
     console.log(this.formQuestions);
-
+    console.log(this.subRootQuestionsFlatArray);
   }
 }
