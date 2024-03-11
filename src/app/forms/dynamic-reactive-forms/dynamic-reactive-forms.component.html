@@ -11,7 +11,8 @@
                         <ng-container *ngIf="['text', 'date', 'number'].includes(rootQuestion.uiControlType)">
                             <div class="col-md-4 mb-4">
                                 <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{rootQuestion.questionId}}  </label>
-                                <input class="form-control" [type]="rootQuestion.uiControlType" [formControlName]="rootQuestion.questionId">
+                                <input class="form-control" [ngClass]="myForm.get(rootQuestion.questionId).invalid? 'is-invalid' : '' "  [type]="rootQuestion.uiControlType" [formControlName]="rootQuestion.questionId">
+                                <div class="invalid-feedback d-block" *ngIf="myForm.get(rootQuestion.questionId).invalid">Please fill out this field.</div>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'radio'">
@@ -26,6 +27,7 @@
                                         </label>
                                       </div>
                                 </ng-container>
+                                <div class="invalid-feedback d-block" *ngIf="myForm.get(rootQuestion.questionId).invalid">Please fill out this field.</div>
                             </div>
                         </ng-container>
                     </ng-container>

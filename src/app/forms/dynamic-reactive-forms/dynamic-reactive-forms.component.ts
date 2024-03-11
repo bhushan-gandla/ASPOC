@@ -44,9 +44,12 @@ export class DynamicReactiveFormsComponent implements OnInit {
       if(question.uiControlType == 'radio'){
         for(const radioQuestion of question.answers){
 
-          this.myForm.addControl(question.questionId, new FormControl(radioQuestion['isChosenAnswer'], Validators.required));
+          console.log(radioQuestion.isChosenAnswer);
 
-          // console.log(radioQuestion['AnswerId']);
+          this.myForm.addControl(question.questionId, new FormControl(Validators.required));
+          // setting value
+          // this.myForm.get(question.questionId)!.setValue(radioQuestion.isChosenAnswer);
+
 
           for(const radioSubQuestion of radioQuestion.questions){
             this.myForm.addControl(radioSubQuestion.questionId, new FormControl('', Validators.required));
@@ -86,13 +89,15 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
           // add controls on html and component class if we find inner Question object filled with sub questions
           subRootQuestionIndex++;
-  
-          // adding new form controls to the myForm
-          this.myForm.addControl(subRootQuestionObject1.questionId, new FormControl('Addresses', Validators.required));
-  
+
           // adding new objects to formQuestions array
           this.formQuestions.splice(subRootQuestionIndex, 0, subRootQuestionObject1);
-
+          
+          console.log(subRootQuestionObject1);
+          // adding new form controls to the myForm
+          this.myForm.addControl(subRootQuestionObject1.questionId, new FormControl(Validators.required));
+          // setting value
+          this.myForm.get(subRootQuestionObject1.questionId)!.setValue(subRootQuestionObject1.answers[0].answerText);
           
           // check if there is empty array, if it doesn't exist, create a new array 
           if(!this.subRootQuestionsFlatArray[questionObjectAnswer.answerId]){
