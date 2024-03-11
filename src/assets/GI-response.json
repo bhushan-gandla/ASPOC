@@ -160,7 +160,7 @@
             {
               "answerId": "GICRA1",
               "answerText": "Yes",
-              "isChosenAnswer": false,
+              "isChosenAnswer": true,
               "questions": [
                 {
                   "questionId": "GIA1",
@@ -178,7 +178,7 @@
                   "answers": [
                     {
                       "answerId": "GIA11",
-                      "answerText": "",
+                      "answerText": "1234 Elm St",
                       "isChosenAnswer": false,
                       "questions": []
                     }
