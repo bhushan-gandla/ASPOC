@@ -1,0 +1,54 @@
+@import "../../../../node_modules/@exos/exos-theme-alpaca/src/scss/variables";
+
+.section{
+    background-color: $gray-5;
+}
+
+// 
+
+.ordered-list-steps {
+    list-style: none;
+    padding-left: 3.375rem;
+    li{
+        position: relative;
+        >.icon-tracker{
+            content: "";
+            color: #66747f;
+            background: #f7f8fa;
+            border: 1px solid #66747f;
+            font-size: 1rem;
+            position: absolute;
+            left: -3.125rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            top: 2px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &:last-child .list-item-inner-content{
+            border-left: none;
+        }
+    }
+    .list-item-inner-content{
+        border-left: 1px dashed #bfcad5;
+        margin-left: -2.4375rem;
+        padding-left: 2.0625rem;
+        padding-bottom: 2.25rem;
+        .btn{
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            padding: 0;
+        }
+    }
+    .active-step .icon-tracker{
+        border: none;
+        &:before {
+            content: "\e939";
+            color: $success;
+            font-size: 1.8rem;
+        }
+    }
+}

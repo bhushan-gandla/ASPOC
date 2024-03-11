@@ -1,1 +1,156 @@
-<p>single-order-creation works!</p>
+<div class="container py-6">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="t-18 mb-0">Order Summary</h2>
+                </div>
+                <div class="card-body">
+                    <ol class="ordered-list-steps">
+                        <li class="active-step">
+                            <div class="icon-tracker">
+                                <span class="visually-hidden">Active</span>
+                            </div>
+                            <div class="list-item-inner-content">
+                                <a class="btn link-primary btn-text-reset btn-regular-text" href="#">General Information</a>
+                                <div class="mb-1">
+                                    <div>Client</div>
+                                    <div class="fw-bold">Client</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="active-step">
+                            <div class="icon-tracker">
+                                <span class="visually-hidden">Active</span>
+                            </div>
+                            <div class="list-item-inner-content">
+                                <a class="btn link-primary btn-text-reset btn-regular-text" href="#">Product Information</a>
+                                <div class="mb-1">
+                                    <div>Client</div>
+                                    <div class="fw-bold">Client</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-tracker">
+                                <span class="visually-hidden">Inactive</span>
+                            </div>
+                            <div class="list-item-inner-content">
+                                <a class="btn link-primary btn-text-reset btn-regular-text" href="#">Vendor Assignment</a>
+                                <div class="mb-1">
+                                    <div>Client</div>
+                                    <div class="fw-bold">Client</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="section p-3">
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-8">
+                            <h3 class="t-18 mb-0">General Information</h3>
+                            <div>
+                                <span class="required-field"></span>
+                                <span>Indicates a required field</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-5">
+                                <label class="required-field" for="loanNumber">Loan Number</label>
+                                <input id="loanNumber" class="form-control" type="number">
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <label class="required-field" for="client">Client</label>
+                                <select id="client" class="form-select">
+                                    <option>Option 1</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <fieldset>
+                                    <legend>Do Not Convert Product</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" id="yesDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input" >
+                                        <label for="yesDoNotConvertProduct" class="form-check-label">Yes</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input type="radio" id="noDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input">
+                                        <label for="noDoNotConvertProduct" class="form-check-label">No</label>
+                                      </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h3 class="t-18 mb-6">Product Information</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-5">
+                                <label class="required-field" for="productCategory">Product Category</label>
+                                <select id="productCategory" class="form-select">
+                                    <option>Option 1</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <label class="required-field" for="productType">Product Type</label>
+                                <select id="productType" class="form-select">
+                                    <option>Option 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h3 class="t-18 mb-6">Vendor Assignment</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-5">
+                                <label class="required-field" for="recommendedVendor">Recommended Vendor</label>
+                                <select id="recommendedVendor" class="form-select">
+                                    <option>Option 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h3 class="t-18 mb-6">Order Preference</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-5">
+                                <fieldset>
+                                    <legend>Do Not Pay Vendor</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" id="yesDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input" >
+                                        <label for="yesDoNotConvertProduct" class="form-check-label">Yes</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input type="radio" id="noDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input">
+                                        <label for="noDoNotConvertProduct" class="form-check-label">No</label>
+                                      </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <fieldset>
+                                    <legend>Do Not Bill Client</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" id="yesDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input">
+                                        <label for="yesDoNotConvertProduct" class="form-check-label">Yes</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input type="radio" id="noDoNotConvertProduct" name="doNotConvertProduct" class="form-check-input">
+                                        <label for="noDoNotConvertProduct" class="form-check-label">No</label>
+                                      </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
