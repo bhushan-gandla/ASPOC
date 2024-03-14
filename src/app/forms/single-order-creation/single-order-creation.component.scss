@@ -1,10 +1,27 @@
 @import "../../../../node_modules/@exos/exos-theme-alpaca/src/scss/variables";
 
-.section{
-    background-color: $gray-5;
+
+// order-card
+.order-card{
+    >.card-body{
+        border-bottom: 1px solid $gray-3;
+        &:last-child{
+            border: none;
+        }
+    }
 }
 
-// 
+.file-icon-upload-border {
+    border: 0.125rem solid #0a2845;
+    border-radius: 50%;
+    color: #0a2845;
+}
+
+// temp fix
+.col-md-2:has(.form-check){
+    display: inline-flex;
+    align-items: center;
+} 
 
 .ordered-list-steps {
     list-style: none;

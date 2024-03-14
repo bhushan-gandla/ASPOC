@@ -1,0 +1,378 @@
+{
+    "formGroupTitle": "General Information",
+    "formGroupCode": "GI",
+    "sections": [
+      {
+        "sectionTitle": "General",
+        "sequenceNumber": 0,
+        "sectionCode": "GIGNRL",
+        "questions": [
+          {
+            "questionId": "GIID1",
+            "questionText": "Inspection Date 1:",
+            "isRequired": true,
+            "isReadOnly": false,
+            "uiControlType": "date",
+            "answers": [
+              {
+                "answerId": "GIID11",
+                "answerText": "GIID11",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GIID2",
+            "questionText": "Inspection Date 2:",
+            "isReadOnly": false,
+            "uiControlType": "date",
+            "answers": [
+              {
+                "answerId": "GIID21",
+                "answerText": "GIID21",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GIII",
+            "questionText": "Inspector Unique ID:",
+            "isRequired": true,
+            "isReadOnly": false,
+            "uiControlType": "text",
+            "responseMaxLen": 25,
+            "answers": [
+              {
+                "answerId": "GIII",
+                "answerText": "",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GIGA",
+            "questionText": "Gate Access Code:",
+            "isRequired": false,
+            "isReadOnly": false,
+            "uiControlType": "text",
+            "responseMaxLen": 40,
+            "answers": [
+              {
+                "answerId": "GIGA1",
+                "answerText": "",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GIKC",
+            "questionText": "Key Code:",
+            "isRequired": false,
+            "isReadOnly": false,
+            "uiControlType": "text",
+            "responseMaxLen": 40,
+            "answers": [
+              {
+                "answerId": "GIKC1",
+                "answerText": "",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GILC",
+            "questionText": "Lockbox Code:",
+            "isRequired": false,
+            "isReadOnly": false,
+            "uiControlType": "text",
+            "responseMaxLen": 40,
+            "answers": [
+              {
+                "answerId": "GILC1",
+                "answerText": "",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GICRA",
+            "questionText": "Corrected Address:",
+            "questionType": "QuestionAndSingleAnswerRadioButton",
+            "isRequired": true,
+            "isReadOnly": false,
+            "answers": [
+              {
+                "answerId": "GICRA1",
+                "answerText": "Yes",
+                "isChosenAnswer": true,
+                "questions": [
+                  {
+                    "questionId": "GIA1",
+                    "questionText": "Address 1:",
+                    "isRequired": false,
+                    "isReadOnly": false,
+                    "uiControlType": "text",
+                    "answers": [
+                      {
+                        "answerId": "GIA11",
+                        "answerText": "1234 Elm St",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  },
+                  {
+                    "questionId": "GIA2",
+                    "questionText": "Address 2:",
+                    "isRequired": false,
+                    "isReadOnly": false,
+                    "uiControlType": "text",
+                    "answers": [
+                      {
+                        "answerId": "GIA21",
+                        "answerText": "",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  },
+                  {
+                    "questionId": "GICI",
+                    "questionText": "City:",
+                    "isRequired": false,
+                    "isReadOnly": false,
+                    "uiControlType": "text",
+                    "answers": [
+                      {
+                        "answerId": "GICI1",
+                        "answerText": "",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  },
+                  {
+                    "questionId": "GIST",
+                    "questionText": "State:",
+                    "isRequired": false,
+                    "isReadOnly": false,
+                    "uiControlType": "select",
+                    "responseMaxLen": 2,
+                    "answers": [
+                      {
+                        "answerId": "GIST1",
+                        "answerText": "GIST1",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  },
+                  {
+                    "questionId": "GIZC",
+                    "questionText": "Zip Code:",
+                    "isRequired": false,
+                    "isReadOnly": false,
+                    "uiControlType": "text",
+                    "answers": [
+                      {
+                        "answerId": "GIZC1",
+                        "answerText": "",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  },
+                  {
+                    "questionId": "GIHW",
+                    "questionText": "How was Corrected Address Found:",
+                    "questionType": "QuestionAndAnswerText",
+                    "isRequired": true,
+                    "isReadOnly": false,
+                    "uiControlType": "text",
+                    "answers": [
+                      {
+                        "answerId": "GIHW1",
+                        "answerText": "",
+                        "isChosenAnswer": false,
+                        "questions": []
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GICRA1"
+                    }
+                  }
+                ]
+              },
+              {
+                "answerId": "GICRA2",
+                "answerText": "No",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GIHO",
+            "questionText": "HOA:",
+            "isRequired": true,
+            "isReadOnly": false,
+            "uiControlType": "radio",
+            "answers": [
+              {
+                "answerId": "GIHO1",
+                "answerText": "Yes",
+                "isChosenAnswer": false,
+                "questions": [
+                  {
+                    "questionId": "GIUPC",
+                    "questionText": "Community Information Can Be Provided:",
+                    "isRequired": true,
+                    "isReadOnly": false,
+                    "uiControlType": "radio",
+                    "answers": [
+                      {
+                        "answerId": "GIUPC1",
+                        "answerText": "Yes",
+                        "isChosenAnswer": false,
+                        "questions": [
+                          {
+                            "questionId": "GICNA",
+                            "questionText": "Community Name:",
+                            "isRequired": true,
+                            "isReadOnly": false,
+                            "uiControlType": "text",
+                            "answers": [
+                              {
+                                "answerId": "GICNA1",
+                                "answerText": "",
+                                "isChosenAnswer": false,
+                                "questions": []
+                              }
+                            ],
+                            "parent": {
+                              "answerId": "GIUPC1"
+                            }
+                          },
+                          {
+                            "questionId": "GICNU",
+                            "questionText": "Community Number:",
+                            "isRequired": true,
+                            "isReadOnly": false,
+                            "uiControlType": "text",
+                            "answers": [
+                              {
+                                "answerId": "GICNU1",
+                                "answerText": "",
+                                "isChosenAnswer": false,
+                                "questions": []
+                              }
+                            ],
+                            "parent": {
+                              "answerId": "GIUPC1"
+                            }
+                          },
+                          {
+                            "questionId": "GICMA",
+                            "questionText": "Community Address:",
+                            "isRequired": true,
+                            "isReadOnly": false,
+                            "uiControlType": "text",
+                            "answers": [
+                              {
+                                "answerId": "GICMA1",
+                                "answerText": "",
+                                "isChosenAnswer": false,
+                                "questions": []
+                              }
+                            ],
+                            "parent": {
+                              "answerId": "GIUPC1"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "answerId": "GIUPC2",
+                        "answerText": "No",
+                        "isChosenAnswer": false,
+                        "questions": [
+                          {
+                            "questionId": "GIUPR",
+                            "questionText": "Reason Community Information Cannot be Provided:",
+                            "isRequired": true,
+                            "isReadOnly": false,
+                            "uiControlType": "text",
+                            "answers": [
+                              {
+                                "answerId": "GIUPR1",
+                                "answerText": "",
+                                "isChosenAnswer": false,
+                                "questions": []
+                              }
+                            ],
+                            "parent": {
+                              "answerId": "GIUPC2"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "parent": {
+                      "answerId": "GIHO1"
+                    }
+                  }
+                ]
+              },
+              {
+                "answerId": "GIHO2",
+                "answerText": "No",
+                "isChosenAnswer": false,
+                "questions": []
+              },
+              {
+                "answerId": "GIHO3",
+                "answerText": "Unable To Determine",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          },
+          {
+            "questionId": "GISN",
+            "questionText": "Supplier Notes:",
+            "isReadOnly": false,
+            "uiControlType": "text",
+            "answers": [
+              {
+                "answerId": "GISN1",
+                "answerText": "",
+                "isChosenAnswer": false,
+                "questions": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
