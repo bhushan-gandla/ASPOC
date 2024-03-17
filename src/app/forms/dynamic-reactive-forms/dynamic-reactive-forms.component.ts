@@ -10,6 +10,7 @@ import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form
 export class DynamicReactiveFormsComponent implements OnInit {
   // formDataJson: any;
   formQuestions: any;
+  unitId: any;
   subRootQuestionsFlatArray: any = {};
 
   public myForm: FormGroup = this.fb.group({});
@@ -22,6 +23,7 @@ export class DynamicReactiveFormsComponent implements OnInit {
     this.dynamicReactiveFormService.getData().subscribe((formData: any) => {
       // this.formDataJson = formData;
       console.log(formData);
+      this.unitId = formData.unitId;
       this.formQuestions = formData.sections[0].questions;
       console.log(this.formQuestions);
       this.createForm(this.formQuestions);
@@ -31,37 +33,29 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
   createForm(questions: any){
     for(const question of questions){
+
+      const formControlName = this.unitId+"-"+question.questionId; 
       if(question.uiControlType == 'text'){
-        this.myForm.addControl(question.questionId, new FormControl('Sample text', Validators.required));
+        this.myForm.addControl(formControlName, new FormControl('Sample text', Validators.required));
       }
       if(question.uiControlType == 'date'){
-        this.myForm.addControl(question.questionId, new FormControl(new Date(2023, 9, 20), Validators.required));
+        this.myForm.addControl(formControlName, new FormControl(new Date(2023, 9, 20), Validators.required));
       }
       if(question.uiControlType == 'number'){
-        this.myForm.addControl(question.questionId, new FormControl('Sample text', Validators.required));
+        this.myForm.addControl(formControlName, new FormControl('Sample text', Validators.required));
       }
       if(question.uiControlType == 'select'){
-        this.myForm.addControl(question.questionId, new FormControl(Validators.required));
+        this.myForm.addControl(formControlName, new FormControl(Validators.required));
       }
 
       if(question.uiControlType == 'radio'){
         for(const radioQuestion of question.answers){
-
-          // console.log(radioQuestion.isChosenAnswer);
-
-          this.myForm.addControl(question.questionId, new FormControl(Validators.required));
-          // setting value
-          // this.myForm.get(question.questionId)!.setValue(radioQuestion.isChosenAnswer);
-
-
-          // for(const radioSubQuestion of radioQuestion.questions){
-          //   this.myForm.addControl(radioSubQuestion.questionId, new FormControl('', Validators.required));
-          // }
-          // this.myForm.addControl(question.questionId, new FormControl('', Validators.required));
+          const radioFormControlName = formControlName + radioQuestion.answerId;
+          this.myForm.addControl(formControlName, new FormControl(Validators.required));
         }
       }
     }
-    // console.log(this.myForm);
+    console.log(this.myForm);
     
   }
 
@@ -89,7 +83,7 @@ export class DynamicReactiveFormsComponent implements OnInit {
       
       
       for(const subRootQuestionObject1 of questionObjectAnswer.questions){
-
+        const formControlName = this.unitId+"-"+subRootQuestionObject1.questionId;
         if(questionObjectAnswer.isChosenAnswer === true){
         // if selected object is true we are adding question objects
 
@@ -101,19 +95,19 @@ export class DynamicReactiveFormsComponent implements OnInit {
           
           // console.log(subRootQuestionObject1);
           // adding new form controls to the myForm
-          this.myForm.addControl(subRootQuestionObject1.questionId, new FormControl(Validators.required));
+          this.myForm.addControl(formControlName, new FormControl(Validators.required));
           // setting value
-          this.myForm.get(subRootQuestionObject1.questionId)!.setValue(subRootQuestionObject1.answers[0].answerText);
+          this.myForm.get(formControlName)!.setValue(subRootQuestionObject1.answers[0].answerText);
           
           // check if there is empty array, if it doesn't exist, create a new array 
           // console.log(rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId)
-          if(!this.subRootQuestionsFlatArray[rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId]){
-            this.subRootQuestionsFlatArray[rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId] = [];
+          if(!this.subRootQuestionsFlatArray[rootQuestionObject.questionId]){
+            this.subRootQuestionsFlatArray[rootQuestionObject.questionId] = [];
           }
 
           // do not duplicate existing subRootQuestion questionIds
-          if (!this.subRootQuestionsFlatArray[rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId].includes(subRootQuestionObject1.questionId)) {
-            this.subRootQuestionsFlatArray[rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId].push(subRootQuestionObject1.questionId);
+          if (!this.subRootQuestionsFlatArray[rootQuestionObject.questionId].includes(subRootQuestionObject1.questionId+"-"+questionObjectAnswer.answerId)) {
+            this.subRootQuestionsFlatArray[rootQuestionObject.questionId].push(subRootQuestionObject1.questionId+"-"+questionObjectAnswer.answerId);
           }
          
         }
@@ -121,44 +115,45 @@ export class DynamicReactiveFormsComponent implements OnInit {
         // if selected object is false we are removing removing objects
         if(questionObjectAnswer.isChosenAnswer === false){
 
-          // looping through flat Array
+          // looping through question ids in book keeping array
           for (let key in this.subRootQuestionsFlatArray) {
-            // console.log(`${key}: ${this.subRootQuestionsFlatArray[key]}`);
 
-            // simple use case of hiding one level deep questionIds inside the flat array
-            if(key.split("-")[0] === rootQuestionObject.questionId && key.split("-")[1] === questionObjectAnswer.answerId){
-              
-              console.log(this.subRootQuestionsFlatArray[key]);
-              for(const childrenQuestionIds of this.subRootQuestionsFlatArray[key]){
-                const index = this.formQuestions.findIndex((item: any) => item.questionId === childrenQuestionIds);
+            // looping through array values inside question ids in book keeping array
+            for(const innerValue of this.subRootQuestionsFlatArray[key]){
+
+              // checking if the questionId and answer id match by splitting the string value inside the array
+              if(innerValue.split('-')[1] === questionObjectAnswer.answerId && innerValue.split('-')[0] === subRootQuestionObject1.questionId){
+
+                console.log(innerValue+'__'+questionObjectAnswer.answerId+'__'+subRootQuestionObject1.questionId); 
+                
+                // removing the questions 
+                const index = this.formQuestions.findIndex((item: any) => item.questionId === subRootQuestionObject1.questionId);
                 if (index !== -1) {
-                  // removing subRootQ-2 from formQuestions array
                   this.formQuestions.splice(index, 1);
-                  // removing subRootQ-2 from myForm 
-                  this.myForm.removeControl(subRootQuestionObject1.questionId);
+                  this.myForm.removeControl(this.unitId+'-'+subRootQuestionObject1.questionId);
                 }
 
 
-                // finding siblings
-                for(let innerKey in this.subRootQuestionsFlatArray){
-                  if(innerKey.split("-")[0] === childrenQuestionIds){
-                    for(const innerChildrenQuestionIds of this.subRootQuestionsFlatArray[innerKey]){
 
+                for(let innerKey in this.subRootQuestionsFlatArray){
+                  if(innerValue.split('-')[0] === innerKey){
+                    
+                    for(const innerKeyValue of this.subRootQuestionsFlatArray[innerKey]){
+                      
+                      const innerChildrenQuestionIds = innerKeyValue.split("-")[0];
+                      console.log('matches' + innerChildrenQuestionIds);
+  
                       const index = this.formQuestions.findIndex((item: any) => item.questionId === innerChildrenQuestionIds);
                       if (index !== -1) {
-                        // removing subRootQ-2 from formQuestions array
                         this.formQuestions.splice(index, 1);
-                        // removing subRootQ-2 from myForm 
-                        this.myForm.removeControl(subRootQuestionObject1.questionId);
+                        this.myForm.removeControl(this.unitId+'-'+innerChildrenQuestionIds);
                       }
+  
                     }
                   }
-
                 }
-
-
-
               }
+
             }
           }
         }

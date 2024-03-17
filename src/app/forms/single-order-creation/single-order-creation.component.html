@@ -1,4 +1,23 @@
 <div class="container-fluid py-6">
+    <div class="d-flex align-items-center justify-content-between mb-5">
+        <h3 class="t-18 mb-0">Single Order Creation</h3>
+        <div class="dropdown">
+            <button type="button" class="btn btn-icon btn-primary dropdown-toggle" aria-label="More options" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="icon-ellipsis" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                    <a href="#" class="dropdown-item link-underline-primary">
+                        Similar loan
+                        <span class="icon-box-arrow-top-right" aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="order-card card">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-6">
@@ -25,14 +44,11 @@
                     <label class="required-field" for="client">LSCI</label>
                     <input id="loanNumber" class="form-control" type="number" readonly>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-2 mb-4">
                     <label class="required-field" for="loanNumber">Loan Number</label>
                     <input id="loanNumber" class="form-control mb-2" type="number">
-
-                    <a href="#" class="link-underline-primary">
-                        Similar loan 
-                        <span class="icon-box-arrow-top-right" aria-hidden="true"></span>
-                    </a>
                 </div>
                 <div class="col-md-2 mb-4">
                     <label class="required-field" for="client">Loan Type</label>
@@ -42,18 +58,23 @@
                     <label class="required-field" for="client">Investor/Insurer</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
+
+            </div>
+            <div class="row">
                 <div class="col-md-2 mb-4">
-                    <label class="required-field" for="loanNumber">First name</label>
+                    <label class="required-field" for="loanNumber">First Name</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
                 <div class="col-md-2 mb-4">
-                    <label for="client">Middle name</label>
+                    <label for="client">Middle Name</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
                 <div class="col-md-2 mb-4">
-                    <label class="required-field" for="client">Last name</label>
+                    <label class="required-field" for="client">Last Name</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-2 mb-4">
                     <label class="required-field"  for="loanNumber">Address 1</label>
                     <input id="loanNumber" class="form-control" type="number">
@@ -63,15 +84,15 @@
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
                 <div class="col-md-2 mb-4">
-                    <label class="required-field" for="client">Zip</label>
-                    <input id="loanNumber" class="form-control" type="number">
-                </div>
-                <div class="col-md-2 mb-4">
                     <label class="required-field" for="client">City</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
                 <div class="col-md-2 mb-4">
                     <label class="required-field" for="client">State</label>
+                    <input id="loanNumber" class="form-control" type="number">
+                </div>
+                <div class="col-md-2 mb-4">
+                    <label class="required-field" for="client">Zip</label>
                     <input id="loanNumber" class="form-control" type="number">
                 </div>
                 <div class="col-md-2 mb-4">
@@ -125,7 +146,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="form-check">
                                 <input type="checkbox" id="offCheckbox" class="form-check-input">
-                                <label for="offCheckbox" class="form-check-label">Do not send to Client system of Record</label>
+                                <label for="offCheckbox" class="form-check-label">Do not send to Client System of Record</label>
                             </div>
                         </div>
                         <div class="col-md-3 mb-4">
@@ -145,24 +166,24 @@
                                 <input type="checkbox" id="offCheckbox" class="form-check-input">
                                 <label for="offCheckbox" class="form-check-label">Do not Pay Vendor</label>
                             </div>
-                            <div>
-                                <label for="productType">Do not Pay Vendor reason</label>
+                            <!-- <div>
+                                <label for="productType">Reason</label>
                                 <select id="productType" class="form-select">
                                     <option>Option 1</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-3 mb-4">
                             <div class="form-check">
                                 <input type="checkbox" id="offCheckbox" class="form-check-input">
-                                <label for="offCheckbox" class="form-check-label">Do not Pay Vendor</label>
+                                <label for="offCheckbox" class="form-check-label">Do not bill Client</label>
                             </div>
-                            <div>
-                                <label for="productType">Do not Pay Vendor reason</label>
+                            <!-- <div>
+                                <label for="productType">Reason</label>
                                 <select id="productType" class="form-select">
                                     <option>Option 1</option>
                                 </select>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -179,16 +200,97 @@
                     <!-- <label for="formFile" class="form-label">Default file input example</label> -->
                     <!-- <input class="form-control" type="file" id="formFile"> -->
 
-                    <div>
+                    <div class="mb-4">
                         <button type="button" class="form-control text-center h-100 pt-3 pb-4 file-upload-section">
                             <div  class="py-5">
                                 <span  aria-hidden="true" class="icon-upload p-1 file-icon-upload-border fw-bold"></span>
                             </div>
                             <label class="text-decoration-none">
-                                <span class="mr-1">Drag here or </span><span class="text-primary font-weight-bold mr-1">browse</span><span>to upload</span></label>
+                                <span class="mr-1">Drag here or </span><span class="text-primary font-weight-bold mr-1">browse </span><span>to upload</span></label>
                         </button>
                         <input  hidden="" type="file" id="fileUploadInput" accept=".pdf,.docx,.xlsx,.txt">
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <label class="required-field" for="loanNumber">Document Name</label>
+                            <input id="loanNumber" class="form-control" type="number">
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <label class="required-field" for="client">Document Type</label>
+                            <select id="productCategory" class="form-select">
+                                <option>Option 1</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-5">
+                            <div class="custom-chip me-3">
+                                <input type="checkbox" id="chipsCheckboxProvider1" class="custom-chip-input">
+                                <label for="chipsCheckboxProvider1" class="custom-chip-label">
+                                    <span class="icon-show" aria-hidden="true"></span>
+                                    Client Viewable
+                                </label>
+                            </div>
+                        
+                            <div class="custom-chip">
+                                <input type="checkbox" id="chipsCheckboxProvider" class="custom-chip-input">
+                                <label for="chipsCheckboxProvider" class="custom-chip-label">
+                                    <span class="icon-show" aria-hidden="true"></span>
+                                    Provider Viewable
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="button" class="btn btn-cross-card-primary-lighter mb-2">Save</button>
+                            <button type="button" class="btn btn-cross-card-primary-lighter bg-transparent">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="document-list list-unstyled mb-5">
+                        <li>
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <span class="icon-document-folded me-1" aria-hidden="true"></span>
+                                    <span class="text-secondary"> ACI File </span>
+                                </div>
+                                <div class="col-md-3">
+                                    Document Name
+                                </div>
+                                <div class="col-md-2">
+                                    Document Type
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    Client Viewable
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <button type="button" class="btn btn-icon btn-icon-danger-lighter btn-sm" aria-label="Delete">
+                                        <span class="icon-delete" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <span class="icon-document-folded me-1" aria-hidden="true"></span>
+                                    <span class="text-secondary"> ACI File </span>
+                                </div>
+                                <div class="col-md-3">
+                                    Document Name
+                                </div>
+                                <div class="col-md-2">
+                                    Document Type
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    Client Viewable
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <button type="button" class="btn btn-icon btn-icon-danger-lighter btn-sm" aria-label="Delete">
+                                        <span class="icon-delete" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <!-- <div class="row">

@@ -1,6 +1,7 @@
 {
   "formGroupTitle": "General Information",
   "formGroupCode": "GI",
+  "unitId": "UNGI",
   "sections": [
     {
       "sectionTitle": "General",
@@ -390,7 +391,7 @@
               "isChosenAnswer": false,
               "questions": [
                 {
-                  "questionId": "GIUPC",
+                  "questionId": "GIUPCH",
                   "questionText": "Community Information Can Be Provided:",
                   "questionType": "QuestionAndSingleAnswerRadioButton",
                   "isRequired": true,
@@ -558,7 +559,7 @@
               "isChosenAnswer": false,
               "questions": [
                 {
-                  "questionId": "GIUPC",
+                  "questionId": "GIUPCC",
                   "questionText": "Community Information Can Be Provided:",
                   "questionType": "QuestionAndSingleAnswerRadioButton",
                   "isRequired": true,

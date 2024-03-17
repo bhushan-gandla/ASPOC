@@ -16,7 +16,27 @@
     border-radius: 50%;
     color: #0a2845;
 }
+.document-list{
+    li{
+        >.row:has(.col-md-3) .col-md-3{
+            display: inline-flex;
+            align-items: center;
+        }
 
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid $gray-3;
+        &:last-child{
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+    .icon-document-folded{
+        color: $primary;
+        font-size: 1.5rem;
+    }
+}
 // temp fix
 .col-md-2:has(.form-check){
     display: inline-flex;
