@@ -43,10 +43,6 @@
                         <ng-container *ngIf="rootQuestion.uiControlType === 'checkbox'">
                             <div class="col-md-4 mb-4">
                                 <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}</label>
-                                <!-- <ng-container *ngFor="let checkboxQuestion of rootQuestion.answers">
-
-                                    {{checkboxQuestion.answerId}}
-                                </ng-container> -->
                                 <ng-container  *ngFor="let checkboxQuestion of rootQuestion.answers">
                                     <div class="form-check form-check-inline">
                                         <input type="checkbox" [id]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [value]="checkboxQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion, checkboxQuestion.answerId)" class="form-check-input">
