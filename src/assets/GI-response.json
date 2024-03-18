@@ -69,7 +69,7 @@
           "answers": [
             {
               "answerId": "GIII",
-              "answerText": "",
+              "answerText": "12343",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -253,8 +253,20 @@
                   },
                   "answers": [
                     {
-                      "answerId": "GIST1",
-                      "answerText": "GIST1",
+                      "answerId": "GIST1P",
+                      "answerText": "PA",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "GIST1G",
+                      "answerText": "GA",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "GIST1G",
+                      "answerText": "GA",
                       "isChosenAnswer": false,
                       "questions": []
                     }

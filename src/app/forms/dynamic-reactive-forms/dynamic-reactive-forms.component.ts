@@ -36,22 +36,30 @@ export class DynamicReactiveFormsComponent implements OnInit {
 
       const formControlName = this.unitId+"-"+question.questionId; 
       if(question.uiControlType == 'text'){
-        this.myForm.addControl(formControlName, new FormControl('Sample text', Validators.required));
+        for(let answers of question.answers){
+          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+        }
       }
       if(question.uiControlType == 'date'){
-        this.myForm.addControl(formControlName, new FormControl(new Date(2023, 9, 20), Validators.required));
+        for(let answers of question.answers){
+          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+        }
       }
       if(question.uiControlType == 'number'){
-        this.myForm.addControl(formControlName, new FormControl('Sample text', Validators.required));
+        for(let answers of question.answers){
+          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+        }
       }
       if(question.uiControlType == 'select'){
-        this.myForm.addControl(formControlName, new FormControl(Validators.required));
+        for(let answers of question.answers){
+          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+        }
       }
 
       if(question.uiControlType == 'radio'){
         for(const radioQuestion of question.answers){
           const radioFormControlName = formControlName + radioQuestion.answerId;
-          this.myForm.addControl(formControlName, new FormControl(Validators.required));
+          this.myForm.addControl(this.unitId+"-"+question.questionId, new FormControl(question.isRequired ? Validators.required: null));
         }
       }
     }
@@ -65,7 +73,7 @@ export class DynamicReactiveFormsComponent implements OnInit {
   }
 
   onRadioButtonChange(rootQuestionIndex: any, rootQuestionObject: any, rootQuestionIdInput: any){
-    console.log(rootQuestionObject  );
+    console.log(rootQuestionObject);
     // console.log(rootQuestionObject);
     // for creating and pushing sub questions
     const subRootQuestionAnswerArray = rootQuestionObject.answers;
@@ -95,9 +103,16 @@ export class DynamicReactiveFormsComponent implements OnInit {
           
           // console.log(subRootQuestionObject1);
           // adding new form controls to the myForm
-          this.myForm.addControl(formControlName, new FormControl(Validators.required));
-          // setting value
-          this.myForm.get(formControlName)!.setValue(subRootQuestionObject1.answers[0].answerText);
+          if(subRootQuestionObject1.uiControlType !== 'radio'){
+            this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+subRootQuestionObject1.answers[0].answerId, new FormControl(Validators.required));
+            // setting value
+            this.myForm.get(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+subRootQuestionObject1.answers[0].answerId)!.setValue(subRootQuestionObject1.answers[0].answerText);
+          }else{
+            console.log('this is radio');
+            this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId, new FormControl(Validators.required));
+            // setting value
+            // this.myForm.get(this.unitId+"-"+subRootQuestionObject1.questionId)!.setValue(subRootQuestionObject1.answers[0].answerText);
+          }
           
           // check if there is empty array, if it doesn't exist, create a new array 
           // console.log(rootQuestionObject.questionId+"-"+questionObjectAnswer.answerId)
