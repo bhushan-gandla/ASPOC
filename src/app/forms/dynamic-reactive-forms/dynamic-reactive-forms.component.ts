@@ -52,14 +52,18 @@ export class DynamicReactiveFormsComponent implements OnInit {
       }
       if(question.uiControlType == 'select'){
         for(let answers of question.answers){
-          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+          this.myForm.addControl(this.unitId+"-"+question.questionId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
         }
       }
 
       if(question.uiControlType == 'radio'){
         for(const radioQuestion of question.answers){
-          const radioFormControlName = formControlName + radioQuestion.answerId;
           this.myForm.addControl(this.unitId+"-"+question.questionId, new FormControl(question.isRequired ? Validators.required: null));
+        }
+      }
+      if(question.uiControlType == 'checkbox'){
+        for(const answers of question.answers){
+          this.myForm.addControl(this.unitId+"-"+question.questionId+"-"+answers.answerId, new FormControl(question.isRequired ? Validators.required: null));
         }
       }
     }
@@ -103,15 +107,23 @@ export class DynamicReactiveFormsComponent implements OnInit {
           
           // console.log(subRootQuestionObject1);
           // adding new form controls to the myForm
-          if(subRootQuestionObject1.uiControlType !== 'radio'){
+          if(subRootQuestionObject1.uiControlType === 'text' || subRootQuestionObject1.uiControlType === 'number' || subRootQuestionObject1.uiControlType === 'date'){
             this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+subRootQuestionObject1.answers[0].answerId, new FormControl(Validators.required));
             // setting value
             this.myForm.get(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+subRootQuestionObject1.answers[0].answerId)!.setValue(subRootQuestionObject1.answers[0].answerText);
-          }else{
+          }else if (subRootQuestionObject1.uiControlType === 'select'){
+            this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId, new FormControl(Validators.required));
+          }          
+          else if (subRootQuestionObject1.uiControlType === 'radio'){
             console.log('this is radio');
             this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId, new FormControl(Validators.required));
             // setting value
             // this.myForm.get(this.unitId+"-"+subRootQuestionObject1.questionId)!.setValue(subRootQuestionObject1.answers[0].answerText);
+          }else if (subRootQuestionObject1.uiControlType === 'checkbox'){
+            for(const checkBoxRootQuestion of subRootQuestionObject1.answers){
+              console.log(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+checkBoxRootQuestion.answerId);
+              this.myForm.addControl(this.unitId+"-"+subRootQuestionObject1.questionId+"-"+checkBoxRootQuestion.answerId, new FormControl(false, Validators.required));
+            }
           }
           
           // check if there is empty array, if it doesn't exist, create a new array 

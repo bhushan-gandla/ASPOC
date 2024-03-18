@@ -17,13 +17,13 @@
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'select'">
                             <div class="col-md-4 mb-4">
-                                <label [for]="unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId" [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId}}  </label>
-                                <select [id]="unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId" class="form-select" [ngClass]="myForm.get(unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId).touched? 'is-invalid' : '' " [formControlName]="unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                                <label [for]="unitId + '-' + rootQuestion.questionId" [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}  </label>
+                                <select [id]="unitId + '-' + rootQuestion.questionId" class="form-select" [ngClass]="myForm.get(unitId + '-' + rootQuestion.questionId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId).touched? 'is-invalid' : '' " [formControlName]="unitId + '-' + rootQuestion.questionId">
+                                    <ng-container *ngFor="let selectOptions of rootQuestion.answers">
+                                        <option [value]="selectOptions.answerId">{{selectOptions.answerText}}</option>
+                                    </ng-container>
                                 </select>
-                                <div class="invalid-feedback d-block" *ngIf="myForm.get(unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId).touched">Please fill out this field.</div>
+                                <div class="invalid-feedback d-block" *ngIf="myForm.get(unitId + '-' + rootQuestion.questionId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId).touched">Please fill out this field.</div>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'radio'">
@@ -38,6 +38,24 @@
                                       </div>
                                 </ng-container>
                                 <div class="invalid-feedback d-block" *ngIf="myForm.get(unitId + '-' + rootQuestion.questionId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId).touched">Please fill out this field.</div>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="rootQuestion.uiControlType === 'checkbox'">
+                            <div class="col-md-4 mb-4">
+                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}</label>
+                                <!-- <ng-container *ngFor="let checkboxQuestion of rootQuestion.answers">
+
+                                    {{checkboxQuestion.answerId}}
+                                </ng-container> -->
+                                <ng-container  *ngFor="let checkboxQuestion of rootQuestion.answers">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" [id]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [value]="checkboxQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion, checkboxQuestion.answerId)" class="form-check-input">
+                                        <label [for]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId"  class="form-check-label">
+                                            {{checkboxQuestion.answerText}} - {{unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId}}
+                                        </label>
+                                      </div>
+                                </ng-container>
+                                <!-- <div class="invalid-feedback d-block" *ngIf="myForm.get(unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId).touched">Please fill out this field.</div> -->
                             </div>
                         </ng-container>
                     </ng-container>
