@@ -7,7 +7,6 @@
             <div class="card-body">
                 <div class="row">
                     <ng-container *ngFor="let rootQuestion of formQuestions; index as i">
-                        
                         <ng-container *ngIf="['text', 'date', 'number'].includes(rootQuestion.uiControlType)">
                             <div class="col-md-4 mb-4">
                                 <label [for]="unitId + '-' + rootQuestion.questionId + '-' + rootQuestion.answers[0].answerId" [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}}  </label>
@@ -17,7 +16,7 @@
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'select'">
                             <div class="col-md-4 mb-4">
-                                <label [for]="unitId + '-' + rootQuestion.questionId" [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}  </label>
+                               <label [for]="unitId + '-' + rootQuestion.questionId" [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}}  <!-- - {{unitId + '-' + rootQuestion.questionId}}-->  </label> 
                                 <select [id]="unitId + '-' + rootQuestion.questionId" class="form-select" [ngClass]="myForm.get(unitId + '-' + rootQuestion.questionId).invalid && myForm.get(unitId + '-' + rootQuestion.questionId).touched? 'is-invalid' : '' " [formControlName]="unitId + '-' + rootQuestion.questionId">
                                     <ng-container *ngFor="let selectOptions of rootQuestion.answers">
                                         <option [value]="selectOptions.answerId">{{selectOptions.answerText}}</option>
@@ -28,10 +27,10 @@
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'radio'">
                             <div class="col-md-4 mb-4">
-                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}</label>
+                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} <!-- - {{unitId + '-' + rootQuestion.questionId}}--></label>
                                 <ng-container  *ngFor="let radioQuestion of rootQuestion.answers">
                                     <div class="form-check form-check-inline ">
-                                        <input type="radio" [id]="radioQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId" [value]="radioQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion, radioQuestion.answerId)" class="form-check-input">
+                                        <input type="radio" [id]="radioQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId" [value]="radioQuestion.answerText" (change)="onFormChange(i, rootQuestion, radioQuestion.answerId)" class="form-check-input">
                                         <label [for]="radioQuestion.answerId"  class="form-check-label">
                                             {{radioQuestion.answerText}}
                                         </label>
@@ -42,10 +41,10 @@
                         </ng-container>
                         <ng-container *ngIf="rootQuestion.uiControlType === 'checkbox'">
                             <div class="col-md-4 mb-4">
-                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} - {{unitId + '-' + rootQuestion.questionId}}</label>
+                                <label [ngClass]="rootQuestion.isRequired? 'required-field' : '' ">{{rootQuestion.questionText}} <!-- - {{unitId + '-' + rootQuestion.questionId}}--></label>
                                 <ng-container  *ngFor="let checkboxQuestion of rootQuestion.answers">
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" [id]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [value]="checkboxQuestion.answerText" (change)="onRadioButtonChange(i, rootQuestion, checkboxQuestion.answerId)" class="form-check-input">
+                                        <input type="checkbox" [id]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [formControlName]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId" [value]="checkboxQuestion.answerText" (change)="onFormChange(i, rootQuestion, checkboxQuestion.answerId)" class="form-check-input">
                                         <label [for]="unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId"  class="form-check-label">
                                             {{checkboxQuestion.answerText}} - {{unitId + '-' + rootQuestion.questionId + '-' + checkboxQuestion.answerId}}
                                         </label>
@@ -59,7 +58,7 @@
             </div>
             <div class="card-footer">
                 <button class="btn btn-primary" type="submit" >Submit</button>
-                {{myForm.invalid}}
+                <!-- {{myForm.invalid}} -->
             </div>
         </div>
     </form>

@@ -24,7 +24,7 @@
           "answers": [
             {
               "answerId": "GIID11",
-              "answerText": "GIID11",
+              "answerText": "2024-03-07",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -46,7 +46,7 @@
           "answers": [
             {
               "answerId": "GIID21",
-              "answerText": "GIID21",
+              "answerText": "2024-03-20",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -92,7 +92,7 @@
           "answers": [
             {
               "answerId": "GIGA1",
-              "answerText": "",
+              "answerText": "Gate Access Code 12",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -161,7 +161,7 @@
             {
               "answerId": "GICRA1",
               "answerText": "Yes",
-              "isChosenAnswer": true,
+              "isChosenAnswer": false,
               "questions": [
                 {
                   "questionId": "GIA1",
@@ -330,7 +330,7 @@
             {
               "answerId": "GICRA2",
               "answerText": "No",
-              "isChosenAnswer": false,
+              "isChosenAnswer": true,
               "questions": []
             }
           ]
