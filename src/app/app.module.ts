@@ -8,6 +8,7 @@ import { HardcodedFormsComponent } from './forms/hardcoded-forms/hardcoded-forms
 import { DynamicFormsComponent } from './forms/dynamic-forms/dynamic-forms.component';
 import { DynamicReactiveFormsComponent } from './forms/dynamic-reactive-forms/dynamic-reactive-forms.component';
 import { SingleOrderCreationComponent } from './forms/single-order-creation/single-order-creation.component';
+import { DynamicReactiveFormsV2Component } from './forms/dynamic-reactive-forms-v2/dynamic-reactive-forms-v2.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SingleOrderCreationComponent } from './forms/single-order-creation/sing
     HardcodedFormsComponent,
     DynamicFormsComponent,
     DynamicReactiveFormsComponent,
-    SingleOrderCreationComponent
+    SingleOrderCreationComponent,
+    DynamicReactiveFormsV2Component
   ],
   imports: [
     BrowserModule,
