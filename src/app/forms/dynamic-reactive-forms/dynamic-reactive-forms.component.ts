@@ -152,13 +152,14 @@ export class DynamicReactiveFormsComponent implements OnInit, OnDestroy {
               // checking if the questionId and answer id match by splitting the string value inside the array
               if(innerValue.split('-')[1] === questionObjectAnswer.answerId && innerValue.split('-')[0] === subRootQuestionObject1.questionId){
 
-                console.log(innerValue+'__'+questionObjectAnswer.answerId+'__'+subRootQuestionObject1.questionId); 
+                console.log(subRootQuestionObject1.questionId); 
                 
                 // removing the questions 
                 const index = this.formQuestions.findIndex((item: any) => item.questionId === subRootQuestionObject1.questionId);
                 if (index !== -1) {
-                  this.formQuestions.splice(index, 1);
-                  this.myForm.removeControl(this.unitId+'-'+subRootQuestionObject1.questionId);
+                  console.log(subRootQuestionObject1.questionId +"-"+index)
+                  // this.formQuestions.splice(index, 1);
+                  // this.myForm.removeControl(this.unitId+'-'+subRootQuestionObject1.questionId);
                 }
 
 

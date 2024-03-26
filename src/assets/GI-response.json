@@ -265,8 +265,8 @@
                       "questions": []
                     },
                     {
-                      "answerId": "GIST1G",
-                      "answerText": "GA",
+                      "answerId": "GIST1M",
+                      "answerText": "MN",
                       "isChosenAnswer": false,
                       "questions": []
                     }
@@ -400,7 +400,7 @@
             {
               "answerId": "GIHO1",
               "answerText": "Yes",
-              "isChosenAnswer": false,
+              "isChosenAnswer": true,
               "questions": [
                 {
                   "questionId": "GIUPCH",
@@ -419,7 +419,7 @@
                     {
                       "answerId": "GIUPC1",
                       "answerText": "Yes",
-                      "isChosenAnswer": false,
+                      "isChosenAnswer": true,
                       "questions": [
                         {
                           "questionId": "GICNA",
@@ -437,7 +437,7 @@
                           "answers": [
                             {
                               "answerId": "GICNA1",
-                              "answerText": "",
+                              "answerText": "Green Meadows",
                               "isChosenAnswer": false,
                               "questions": []
                             }
@@ -462,7 +462,7 @@
                           "answers": [
                             {
                               "answerId": "GICNU1",
-                              "answerText": "",
+                              "answerText": "97653",
                               "isChosenAnswer": false,
                               "questions": []
                             }
@@ -487,7 +487,7 @@
                           "answers": [
                             {
                               "answerId": "GICMA1",
-                              "answerText": "",
+                              "answerText": "687 Helm St",
                               "isChosenAnswer": false,
                               "questions": []
                             }

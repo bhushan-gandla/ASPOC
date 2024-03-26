@@ -1,1 +1,67 @@
-<p>dynamic-reactive-forms-v2 works!</p>
+
+<!-- 
+<ng-container *ngFor="let question of formQuestions; index as i">
+    <div>{{i}} - {{question.questionText}} - {{question.questionId}}</div>
+</ng-container> -->
+
+
+<div class="container pt-5">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Reactive Dynamic Form</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <ng-container *ngFor="let question of formQuestions; index as i">
+                        <ng-container *ngIf="['text', 'date', 'number'].includes(question.uiControlType)">
+                            <div class="col-md-4 mb-4">
+                                <label [for]="question.questionId + '-' + question.answers[0].answerId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  </label>
+                                <input [id]="question.questionId + '-' + question.answers[0].answerId" [type]="question.uiControlType" [formControlName]="question.questionId + '-' + question.answers[0].answerId" class="form-control">
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="question.uiControlType === 'select'">
+                            <div class="col-md-4 mb-4">
+                               <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  <!-- - {{question.questionId}}-->  </label> 
+                                <select [id]="question.questionId" class="form-select"  [formControlName]="question.questionId">
+                                    <ng-container *ngFor="let selectOptions of question.answers">
+                                        <option [value]="selectOptions.answerId">{{selectOptions.answerText}}</option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="question.uiControlType === 'radio'">
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
+                                <ng-container  *ngFor="let answers of question.answers">
+                                    <div class="form-check form-check-inline ">
+                                        <input type="radio" [id]="answers.answerId" [value]="answers.answerText" [formControlName]="question.questionId" class="form-check-input" (change)="onFormChange(i, question, answers.answerId)">
+                                        <label [for]="answers.answerId"  class="form-check-label">
+                                            {{answers.answerText}} - {{answers.isChosenAnswer}}
+                                        </label>
+                                      </div>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="question.uiControlType === 'checkbox'">
+                            <div class="col-md-4 mb-4">
+                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
+                                <ng-container  *ngFor="let answers of question.answers">
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId" [value]="answers.answerText" class="form-check-input">
+                                        <label [for]="question.questionId + '-' + answers.answerId"  class="form-check-label">
+                                            {{answers.answerText}} - {{question.questionId + '-' + answers.answerId}}
+                                        </label>
+                                      </div>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" type="submit" >Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
