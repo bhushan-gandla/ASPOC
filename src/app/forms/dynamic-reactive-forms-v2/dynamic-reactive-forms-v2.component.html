@@ -16,8 +16,8 @@
                     <ng-container *ngFor="let question of formQuestions; index as i">
                         <ng-container *ngIf="['text', 'date', 'number'].includes(question.uiControlType)">
                             <div class="col-md-4 mb-4">
-                                <label [for]="question.questionId + '-' + question.answers[0].answerId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  </label>
-                                <input [id]="question.questionId + '-' + question.answers[0].answerId" [type]="question.uiControlType" [formControlName]="question.questionId + '-' + question.answers[0].answerId" class="form-control">
+                                <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  </label>
+                                <input [id]="question.questionId" [type]="question.uiControlType" [formControlName]="question.questionId" class="form-control">
                             </div>
                         </ng-container>
                         <ng-container *ngIf="question.uiControlType === 'select'">
@@ -48,7 +48,7 @@
                                 <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
                                 <ng-container  *ngFor="let answers of question.answers">
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId" [value]="answers.answerText" class="form-check-input">
+                                        <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId + '-' + answers.answerId" [value]="answers.answerText" class="form-check-input">
                                         <label [for]="question.questionId + '-' + answers.answerId"  class="form-check-label">
                                             {{answers.answerText}} - {{question.questionId + '-' + answers.answerId}}
                                         </label>

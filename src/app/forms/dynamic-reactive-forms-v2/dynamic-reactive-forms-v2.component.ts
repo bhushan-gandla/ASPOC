@@ -12,6 +12,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
   dataSubscription: any;
   formData: any;
   formQuestions: any;
+  unitId: any;
   isChosenQuestions: any = [];
   public form: FormGroup = this.fb.group({});
   bookKeepingQuestions: any = [];
@@ -24,6 +25,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
 
   ngOnInit(): void {
     this.dataSubscription = this.dynamicReactiveFormService.getData().subscribe((formDataJson: any) => {
+      this.unitId = formDataJson.unitId;
       this.formQuestions = formDataJson.sections[0].questions;
       this.createFormQuestions();
       this.createForm();
@@ -88,7 +90,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
         case 'date':
         case 'number':{
           for(let answers of question.answers){
-            this.form.addControl(question.questionId+"-"+answers.answerId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
+            this.form.addControl(question.questionId, new FormControl(answers.answerText, question.isRequired ? Validators.required: null));
           }
           break;
         }
@@ -109,7 +111,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
         }
         case 'checkbox':{
           for(let answers of question.answers){
-            this.form.addControl(question.questionId+"-"+answers.answerId, new FormControl(false, question.isRequired ? Validators.required: null));
+            this.form.addControl(question.questionId+"-"+answers.answerId, new FormControl(answers.isChosenAnswer === true ? true : false, question.isRequired ? Validators.required: null));
           }
           break;
         }
@@ -119,21 +121,16 @@ export class DynamicReactiveFormsV2Component implements OnInit{
 
   onFormChange(questionIndex: any, question: any, answerAnswerId: any){
       const answers = question.answers;
-    
-     for(const answer of answers){
+      for(const answer of answers){
         if(answer.answerId === answerAnswerId){
           answer.isChosenAnswer = true;
         }else{
           answer.isChosenAnswer = false;
         }
       }
-
-    
-
       for(const answer of answers){
         if(answer.isChosenAnswer === true && answer.answerId === answerAnswerId){
           this.getChosenAnswers(question);
-
           for(let key in this.isChosenQuestions){
             let index = this.formQuestions.findIndex((item: any) => item.questionId === this.isChosenQuestions[key].questionId);
             index++;
@@ -141,46 +138,21 @@ export class DynamicReactiveFormsV2Component implements OnInit{
               this.formQuestions.splice(index, 0, ...this.isChosenQuestions[key].questions);
             }
           }
-    
           this.isChosenQuestions = [];
-    
-          console.log(this.formQuestions);
-    
-         
-    
-          console.log(this.bookKeepingQuestions);
+          // console.log(this.formQuestions);
+          // console.log(this.bookKeepingQuestions);
         } 
 
         if(answer.isChosenAnswer === false){
           for(const subQuestions of answer.questions){
-            // console.log(subQuestions);
             for (let key in this.bookKeepingQuestions){
               for(const innerValue of this.bookKeepingQuestions[key]){
                 if(innerValue.split('-')[1] === answer.answerId && innerValue.split('-')[0] === subQuestions.questionId){
-                  console.log(innerValue.split('-')[1]+"-"+answer.answerId);
-                  console.log(innerValue.split('-')[0]+"-"+subQuestions.questionId);
-
                   this.removeQuestions(subQuestions.questionId);
-                  for(const subAnswers of subQuestions.answers){
-                    if(subQuestions.uiControlType === 'select' || subQuestions.uiControlType === 'radio'){
-                      this.form.removeControl(subQuestions.questionId);
-                    }else{
-                      this.form.removeControl(subQuestions.questionId+"-"+subAnswers.answerId);
-                    }
-                  }
-
                   for(let innerKey in this.bookKeepingQuestions){
                     if(innerValue.split('-')[0] === innerKey){
                       for(const innerKeyValue of this.bookKeepingQuestions[innerKey]){
                         this.removeQuestions(innerKeyValue.split("-")[0]);
-
-                        for(const subAnswers of subQuestions.answers){
-                          if(subQuestions.uiControlType === 'select' || subQuestions.uiControlType === 'radio'){
-                            this.form.removeControl(innerKeyValue.split("-")[0]);
-                          }else{
-                            this.form.removeControl(innerKeyValue.split("-")[0]+"-"+subAnswers.answerId);
-                          }
-                        }
                       }
                     }
                   }
@@ -198,11 +170,43 @@ export class DynamicReactiveFormsV2Component implements OnInit{
     const index = this.formQuestions.findIndex((item: any) => item.questionId === questionId);
     if (index !== -1) {
       this.formQuestions.splice(index, 1);
-      // this.form.removeControl(questionId);
+      this.form.removeControl(questionId);
     }
   }
   onSubmit(){
+    this.formResponse = [];
+    const formControls = this.form.controls;
+    for(let key in formControls){
+      if((typeof formControls[key].value) !== 'function'){
+        console.log(typeof formControls[key].value);
+        let answerId = "";
+        let questionId = "";
+        if(key.includes("-")){
+          questionId = key.split("-")[0];
+          answerId = key.split("-")[1];
+        }else{
+          const question = this.formQuestions.filter((item: any) => item.questionId === key);
+          questionId = key;
+          for(const answer of question[0].answers){
+            if(answer.isChosenAnswer){
+              answerId = answer.answerId;
+            }else{
+              answerId = answer.answerId;
+            }
+          }
+        }
+        if(formControls[key].value){
+          this.formResponse.push({
+            questionId: questionId,
+            answerId: answerId,
+            unitId: this.unitId,
+            answerValue: formControls[key].value
+          });
+        }
+      }
+    }
     console.log(this.form);
+    console.log(this.formResponse);
   }
 
 }

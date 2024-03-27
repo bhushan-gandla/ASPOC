@@ -1363,13 +1363,13 @@
                     {
                       "answerId": "PITY3",
                       "answerText": "Outbuilding",
-                      "isChosenAnswer": false,
+                      "isChosenAnswer": true,
                       "questions": []
                     },
                     {
                       "answerId": "PITY5",
                       "answerText": "Carport",
-                      "isChosenAnswer": false,
+                      "isChosenAnswer": true,
                       "questions": []
                     },
                     {
