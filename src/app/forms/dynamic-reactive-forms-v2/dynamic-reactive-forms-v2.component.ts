@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form.service';
 
@@ -12,24 +12,35 @@ export class DynamicReactiveFormsV2Component implements OnInit{
   dataSubscription: any;
   formData: any;
   formQuestions: any;
+  formTitle: any;
   unitId: any;
   isChosenQuestions: any = [];
   public form: FormGroup = this.fb.group({});
   bookKeepingQuestions: any = [];
   formResponse: any = [];
 
+  @Input() formInputData:any;
   
   constructor(private dynamicReactiveFormService: DynamicReactiveFormService, private fb: FormBuilder ){
-
+    
   }
 
   ngOnInit(): void {
-    this.dataSubscription = this.dynamicReactiveFormService.getData().subscribe((formDataJson: any) => {
-      this.unitId = formDataJson.unitId;
-      this.formQuestions = formDataJson.sections[0].questions;
-      this.createFormQuestions();
-      this.createForm();
-    });
+    // this.dataSubscription = this.dynamicReactiveFormService.getData().subscribe((formDataJson: any) => {
+    //   this.unitId = formDataJson.unitId;
+    //   this.formQuestions = formDataJson.sections[0].questions;
+    //   this.createFormQuestions();
+    //   this.createForm();
+    // });
+
+
+    this.unitId = this.formInputData.unitId;
+    this.formQuestions = this.formInputData.sections[0].questions;
+    this.formTitle = this.formInputData.formTitle;
+    this.createFormQuestions();
+    this.createForm();
+
+    console.log(this.formInputData);
   }
 
 

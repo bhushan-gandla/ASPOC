@@ -2,17 +2,15 @@
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                  The current link item
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+                <ng-container *ngFor="let form of formMenu">
+                    <button class="list-group-item list-group-item-action" (click)="loadForm(form)">
+                        {{form.formTitle}}
+                      </button>
+                </ng-container>
             </div>
         </div>
         <div class="col-md-9">
-            sds
+            <app-dynamic-reactive-forms-v2 *ngIf="form" [formInputData]="form"></app-dynamic-reactive-forms-v2>
         </div>
     </div>
 </div>

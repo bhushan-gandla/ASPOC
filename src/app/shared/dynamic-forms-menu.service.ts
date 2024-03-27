@@ -14,4 +14,10 @@ export class DynamicFormsMenuService {
 
     return this.http.get(dataUrl);
   }
+
+  getForm(formCode: any){
+    const dataUrl = "../../../assets/no-contact-inspection-form/forms/"+formCode+".json";
+    console.log(dataUrl);
+    return this.http.get(dataUrl);
+  }
 }
