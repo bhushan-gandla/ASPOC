@@ -9,6 +9,7 @@ import { DynamicFormsComponent } from './forms/dynamic-forms/dynamic-forms.compo
 import { DynamicReactiveFormsComponent } from './forms/dynamic-reactive-forms/dynamic-reactive-forms.component';
 import { SingleOrderCreationComponent } from './forms/single-order-creation/single-order-creation.component';
 import { DynamicReactiveFormsV2Component } from './forms/dynamic-reactive-forms-v2/dynamic-reactive-forms-v2.component';
+import { OrderDetailsComponent } from './forms/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DynamicReactiveFormsV2Component } from './forms/dynamic-reactive-forms-
     DynamicFormsComponent,
     DynamicReactiveFormsComponent,
     SingleOrderCreationComponent,
-    DynamicReactiveFormsV2Component
+    DynamicReactiveFormsV2Component,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

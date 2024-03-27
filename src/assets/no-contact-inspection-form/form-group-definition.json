@@ -1,0 +1,93 @@
+{
+    "id": "A76C4876-A174-4508-9A58-E0B06A17104B",
+    "cosmosDocType": "FormGroup",
+    "partitionKey": "FormGroup",
+    "formGroupTitle": "No Contact Inspection Standard",
+    "formGroupCode": "FGNCIS",
+    "productCodes": [
+        "INSPNCIS"
+    ],
+    "subClientIds": [
+        -1
+    ],
+    "excludedSubClientIds": [
+        99999
+    ],
+    "forms": [
+        {
+            "formCode": "GI",
+            "formTitle": "General Information",
+            "sequenceNumber": 1
+        },
+        {
+            "formCode": "NI",
+            "formTitle": "Neighbourhood",
+            "sequenceNumber": 2
+        },
+        {
+            "formCode": "DW",
+            "formTitle": "Dwelling Information",
+            "sequenceNumber": 3
+        },
+        {
+            "formCode": "PI",
+            "formTitle": "Property",
+            "sequenceNumber": 4
+        },
+        {
+            "formCode": "PS",
+            "formTitle": "Pools, Spa, Hot Tub & Water Features",
+            "sequenceNumber": 5
+        },
+        {
+            "formCode": "CV",
+            "formTitle": "Code Violations",
+            "sequenceNumber": 6
+        },
+        {
+            "formCode": "DA",
+            "formTitle": "Exterior Damages",
+            "sequenceNumber": 7
+        },
+        {
+            "formCode": "RS",
+            "formTitle": "Recommended Services",
+            "sequenceNumber": 8
+        },
+        {
+            "formCode": "OI",
+            "formTitle": "Occupancy Information",
+            "sequenceNumber": 9
+        },
+        {
+            "formCode": "UT",
+            "formTitle": "Utilities (Per Unit)",
+            "sequenceNumber": 10
+        }
+    ],
+    "tenant": {
+        "masterClient": -1,
+        "subClient": -1,
+        "vendor": -1,
+        "subContractor": -1,
+        "servicerGroup": -1,
+        "servicerIds": [
+            1
+        ],
+        "lineofBusinessid": [
+            3
+        ]
+    },
+    "audit": {
+        "isDeleted": false,
+        "createdDate": "2024-02-19T04:15:44+00:00",
+        "createdBy": "1001_User",
+        "lastUpdatedDate": "2024-02-19T00:00:00+00:00",
+        "lastUpdatedBy": "1001_User"
+    },
+    "_rid": "+ihaALKFkH0EjwAAAAAAAA==",
+    "_self": "dbs/+ihaAA==/colls/+ihaALKFkH0=/docs/+ihaALKFkH0EjwAAAAAAAA==/",
+    "_etag": "\"6a000bd4-0000-0200-0000-65d51e9e0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1708465822
+}

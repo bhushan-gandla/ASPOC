@@ -1,0 +1,1101 @@
+{
+  "formTitle": "Occupancy Information",
+  "formCode": "OI",
+  "sections": [
+    {
+      "sectionTitle": "General",
+      "sequenceNumber": 0,
+      "sectionCode": "OIGNRL",
+      "questions": [
+        {
+          "questionId": "OIOCT",
+          "questionText": "Occupancy Status:",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "438",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "OIOCT1",
+              "answerText": "Occupied By Owner",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT2",
+              "answerText": "Occupied By Non Owner",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT3",
+              "answerText": "Occupied By Unknown",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT4",
+              "answerText": "Vacant Secure",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT5",
+              "answerText": "Vacant Not Secure",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "OINS",
+                  "questionText": "Not Secure Reasons:",
+                  "questionType": "MessageOnly",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "label",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "MessageOnly",
+                    "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIFD",
+                  "questionText": "Front Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIFD1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIFD2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OISD",
+                  "questionText": "Side Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OISD1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISD2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIBSD",
+                  "questionText": "Basement Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIBSD1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIBSD2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIPD",
+                  "questionText": "Pet Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIPD1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIPD2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OICS",
+                  "questionText": "Crawl Space:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OICS1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OICS2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIBKD",
+                  "questionText": "Back Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIBKD1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIBKD2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIGDR",
+                  "questionText": "Garage Door:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIGDR1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIGDR2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIWI",
+                  "questionText": "Window:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIWI1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIMW",
+                          "questionText": "Are Multiple Windows Unsecure:",
+                          "questionType": "QuestionAndSingleAnswerRadioButton",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "radio",
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndSingleAnswerRadioButton",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIMW1",
+                              "answerText": "Yes",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OIMW2",
+                              "answerText": "No",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIWI1"
+                          }
+                        },
+                        {
+                          "questionId": "OI",
+                          "questionText": "Location of Unsecure Windows:",
+                          "questionType": "QuestionAndManyAnswersCheckBox",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "checkbox",
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndManyAnswersCheckBox",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-2'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"checkbox\"><label class='control-label dynamicFormLabel'><input type=\"checkbox\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} {% if Question.ResponseMinChoices %} data-validation-minchecked-minchecked=\"{{Question.ResponseMinChoices}}\" data-validation-minchecked-message=\"Choose {{Question.ResponseMinChoices}}\" {% else %}data-validation-minchecked-minchecked=\"1\" data-validation-minchecked-message=\"Choose One\" {% endif %}{% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked {% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OI1",
+                              "answerText": "First Floor",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OI2",
+                              "answerText": "Second Floor",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OI3",
+                              "answerText": "Third Floor",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OI4",
+                              "answerText": "Fourth Floor or Above",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OI5",
+                              "answerText": "Basement",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OI6",
+                              "answerText": "Garage",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIWI1"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "answerId": "OIWI2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OISH",
+                  "questionText": "Shed:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OISH1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISH2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIOU",
+                  "questionText": "Outbuilding:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIOU1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOU2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                },
+                {
+                  "questionId": "OIOTH",
+                  "questionText": "Other:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIOTH1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIOD",
+                          "questionText": "If Other, Explain",
+                          "questionType": "QuestionAndAnswerText",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "text",
+                          "responseMaxLen": 800,
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndAnswerText",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIOD1",
+                              "answerText": "",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIOTH1"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "answerId": "OIOTH2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIOCT5"
+                  }
+                }
+              ]
+            },
+            {
+              "answerId": "OIOCT6",
+              "answerText": "Partial Vacant",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT7",
+              "answerText": "Partial Vacant Secure",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT8",
+              "answerText": "Partial Vacant Not Secure",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "OIOCT9",
+              "answerText": "Unknown",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "questionId": "OIVB",
+          "questionText": "Verified by:",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "439",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "OIVB1",
+              "answerText": "Direct Contact",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "OISW",
+                  "questionText": "Spoke with:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OISW1",
+                      "answerText": "Mortgagor",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW2",
+                      "answerText": "Neighbor",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW3",
+                      "answerText": "New Owner",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW4",
+                      "answerText": "Postman",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW5",
+                      "answerText": "Relative",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW6",
+                      "answerText": "Tenant",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OISW7",
+                      "answerText": "Other",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIEO",
+                          "questionText": "If Other, Explain",
+                          "questionType": "QuestionAndAnswerText",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "text",
+                          "responseMaxLen": 800,
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndAnswerText",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIEO1",
+                              "answerText": "",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OISW7"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                },
+                {
+                  "questionId": "OISWD",
+                  "questionText": "Spoke with Details:",
+                  "questionType": "MessageOnly",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "label",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "MessageOnly",
+                    "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                },
+                {
+                  "questionId": "OINA",
+                  "questionText": "Name:",
+                  "questionType": "QuestionAndAnswerText",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "text",
+                  "responseMaxLen": 100,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndAnswerText",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OINA1",
+                      "answerText": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                },
+                {
+                  "questionId": "OIAD",
+                  "questionText": "Address / Description:",
+                  "questionType": "QuestionAndAnswerText",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "text",
+                  "responseMaxLen": 100,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndAnswerText",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIAD1",
+                      "answerText": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                },
+                {
+                  "questionId": "OIPN",
+                  "questionText": "Phone Number:",
+                  "questionType": "QuestionAndAnswerText",
+                  "isRequired": false,
+                  "isReadOnly": false,
+                  "uiControlType": "text",
+                  "responseMaxLen": 12,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndAnswerText",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIPN1",
+                      "answerText": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                },
+                {
+                  "questionId": "OIAT",
+                  "questionText": "Attitude:",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIAT1",
+                      "answerText": "Cooperative",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIAT2",
+                      "answerText": "Hostile",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIAT3",
+                      "answerText": "Indifferent",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIAT4",
+                      "answerText": "Uncooperative",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB1"
+                  }
+                }
+              ]
+            },
+            {
+              "answerId": "OIVB2",
+              "answerText": "Visual",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "OIOV",
+                  "questionText": "Occupied Visual Reason (Minimum of 3 Required) :",
+                  "questionType": "QuestionAndManyAnswersCheckBox",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "checkbox",
+                  "responseMinChoices": 3,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndManyAnswersCheckBox",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-2'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"checkbox\"><label class='control-label dynamicFormLabel'><input type=\"checkbox\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} {% if Question.ResponseMinChoices %} data-validation-minchecked-minchecked=\"{{Question.ResponseMinChoices}}\" data-validation-minchecked-message=\"Choose {{Question.ResponseMinChoices}}\" {% else %}data-validation-minchecked-minchecked=\"1\" data-validation-minchecked-message=\"Choose One\" {% endif %}{% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked {% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIOV01",
+                      "answerText": "Animals",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV02",
+                      "answerText": "Car",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV03",
+                      "answerText": "Decorations",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV04",
+                      "answerText": "Fresh Trash in Trashcan",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV05",
+                      "answerText": "Furniture",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIFL",
+                          "questionText": "Furniture Located:",
+                          "questionType": "QuestionAndSingleAnswerRadioButton",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "radio",
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndSingleAnswerRadioButton",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIFL1",
+                              "answerText": "Inside",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OIFL2",
+                              "answerText": "Outside",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            },
+                            {
+                              "answerId": "OIFL3",
+                              "answerText": "Both",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIOV05"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "answerId": "OIOV06",
+                      "answerText": "Lawn",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV07",
+                      "answerText": "Name on Mailbox/Directory",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV08",
+                      "answerText": "People",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV09",
+                      "answerText": "Snow Removed/Shoveled",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIOV10",
+                      "answerText": "Other",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIOR1",
+                          "questionText": "If Other, Explain",
+                          "questionType": "QuestionAndAnswerText",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "text",
+                          "responseMaxLen": 800,
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndAnswerText",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIOR11",
+                              "answerText": "",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIOV10"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB2"
+                  }
+                },
+                {
+                  "questionId": "OIVV",
+                  "questionText": "Vacant Visual Reason (Minimum of 3 Required):",
+                  "questionType": "QuestionAndManyAnswersCheckBox",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "checkbox",
+                  "responseMinChoices": 3,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndManyAnswersCheckBox",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-2'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"checkbox\"><label class='control-label dynamicFormLabel'><input type=\"checkbox\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} {% if Question.ResponseMinChoices %} data-validation-minchecked-minchecked=\"{{Question.ResponseMinChoices}}\" data-validation-minchecked-message=\"Choose {{Question.ResponseMinChoices}}\" {% else %}data-validation-minchecked-minchecked=\"1\" data-validation-minchecked-message=\"Choose One\" {% endif %}{% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked {% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIVV1",
+                      "answerText": "Abandoned Vehicles",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV10",
+                      "answerText": "Lawn Not Maintained",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV11",
+                      "answerText": "Missing Appliances",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV12",
+                      "answerText": "Name on Mailbox/Directory Removed",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV13",
+                      "answerText": "No Furniture",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV2",
+                      "answerText": "Out of Season Decoration",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV3",
+                      "answerText": "Property Boarded/Temp Security Fence",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV4",
+                      "answerText": "Property Not Maintained/Neglect",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV5",
+                      "answerText": "Severe Damage",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV6",
+                      "answerText": "Utilities Off",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV7",
+                      "answerText": "Vandalism",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV8",
+                      "answerText": "Winterization Sticker Posted",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "OIVV9",
+                      "answerText": "Other",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "OIOR2",
+                          "questionText": "If Other, Explain",
+                          "questionType": "QuestionAndAnswerText",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "text",
+                          "responseMaxLen": 800,
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndAnswerText",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "OIOR21",
+                              "answerText": "",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "OIVV9"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB2"
+                  }
+                }
+              ]
+            },
+            {
+              "answerId": "OIVB3",
+              "answerText": "Other",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "OIVOE",
+                  "questionText": "If Other, Explain",
+                  "questionType": "QuestionAndAnswerText",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "text",
+                  "responseMaxLen": 800,
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndAnswerText",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "OIVOE1",
+                      "answerText": "",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "OIVB3"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "formTitle": "Pools, Spa, Hot Tub and Water Features",
+  "formCode": "PS",
+  "sections": [
+    {
+      "sectionTitle": "General",
+      "sequenceNumber": 0,
+      "sectionCode": "PSGNRL",
+      "questions": [
+        {
+          "questionId": "PSPO",
+          "questionText": "Pool On Site",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "197",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "PSPO1",
+              "answerText": "Yes",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "PSPT",
+                  "questionText": "Pool Type",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSPT1",
+                      "answerText": "Above Ground",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSPT2",
+                      "answerText": "In Ground",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSPO1"
+                  }
+                },
+                {
+                  "questionId": "PSIPS",
+                  "questionText": "Is Pool Secure?",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSIPS1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSIPS2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSPO1"
+                  }
+                },
+                {
+                  "questionId": "PSPSR",
+                  "questionText": "Pool Securing Recommended",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSPSR1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": [
+                        {
+                          "questionId": "PSPSE",
+                          "questionText": "If Securing Recommended, Explain:",
+                          "questionType": "QuestionAndAnswerText",
+                          "isRequired": true,
+                          "isReadOnly": false,
+                          "uiControlType": "text",
+                          "responseMaxLen": 4000,
+                          "canShow": false,
+                          "template": {
+                            "templateId": "QuestionAndAnswerText",
+                            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 control-label dynamicFormLabel'>{{Question.QuestionText}}</label><div class='controls col-xs-11'>{% for answer in Question.Answers %}<input type=\"text\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"  data-validation-number-message=\"Only Numbers\"{% endif %} name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" value=\"{{answer.AnswerText}}\"{% if Question.IsRequired %} required {% endif %} {% if Question.IsReadOnly %} readonly {% endif %} {% if Question.ResponseMaxLen %} maxlength=\"{{Question.ResponseMaxLen}}\" {% endif %} class=\"form-control\" {% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} > {% endfor %} </div></div>"
+                          },
+                          "answers": [
+                            {
+                              "answerId": "PSPSE1",
+                              "answerText": "",
+                              "isChosenAnswer": false,
+                              "questions": []
+                            }
+                          ],
+                          "parent": {
+                            "answerId": "PSPSR1"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "answerId": "PSPSR2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSPO1"
+                  }
+                },
+                {
+                  "questionId": "PSDPF",
+                  "questionText": "Damage to Pool Filter and/or System ",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSDPF1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSDPF2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSDPF3",
+                      "answerText": "Unable to Determine",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSPO1"
+                  }
+                }
+              ]
+            },
+            {
+              "answerId": "PSPO2",
+              "answerText": "No",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "questionId": "PSSPA",
+          "questionText": "Spa and/or Hot Tub On Site:",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "189",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "PSSPA1",
+              "answerText": "Yes",
+              "isChosenAnswer": false,
+              "questions": [
+                {
+                  "questionId": "PSSI",
+                  "questionText": "Is Spa and/or Hot Tub Integrated with Pool?",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSSI1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSSI2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSSPA1"
+                  }
+                },
+                {
+                  "questionId": "PSSS",
+                  "questionText": "Is Spa and/or Hot Tub Secure?",
+                  "questionType": "QuestionAndSingleAnswerRadioButton",
+                  "isRequired": true,
+                  "isReadOnly": false,
+                  "uiControlType": "radio",
+                  "canShow": false,
+                  "template": {
+                    "templateId": "QuestionAndSingleAnswerRadioButton",
+                    "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+                  },
+                  "answers": [
+                    {
+                      "answerId": "PSSS1",
+                      "answerText": "Yes",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "PSSS2",
+                      "answerText": "No",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    }
+                  ],
+                  "parent": {
+                    "answerId": "PSSPA1"
+                  }
+                }
+              ]
+            },
+            {
+              "answerId": "PSSPA2",
+              "answerText": "No",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

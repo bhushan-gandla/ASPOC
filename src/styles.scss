@@ -4,3 +4,23 @@
 .card{
     --bs-card-bg: #fff;
 }
+
+.list-group {
+    --bs-list-group-color: var(--bs-body-color);
+    --bs-list-group-bg: #fff;
+    --bs-list-group-border-color: var(--bs-border-color);
+    --bs-list-group-border-width: var(--bs-border-width);
+    --bs-list-group-border-radius: var(--bs-border-radius);
+    --bs-list-group-item-padding-x: 0.8rem;
+    --bs-list-group-item-padding-y: 0.8rem;
+    --bs-list-group-action-color: var(--bs-secondary-color);
+    --bs-list-group-action-hover-color: #0a2845;
+    --bs-list-group-action-hover-bg: #eff7fe;
+    --bs-list-group-action-active-color: #0a2845;
+    --bs-list-group-action-active-bg: #eff7fe;
+    --bs-list-group-disabled-color: var(--bs-secondary-color);
+    --bs-list-group-disabled-bg: var(--bs-body-bg);
+    --bs-list-group-active-color: #fff;
+    --bs-list-group-active-bg: var(--exos-primary);
+    --bs-list-group-active-border-color: var(--bs-border-color);
+}
