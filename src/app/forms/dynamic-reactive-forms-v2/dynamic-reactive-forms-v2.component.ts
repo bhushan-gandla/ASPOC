@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form.service';
 
@@ -19,7 +19,9 @@ export class DynamicReactiveFormsV2Component implements OnInit{
   bookKeepingQuestions: any = [];
   formResponse: any = [];
 
-  @Input() formInputData:any;
+  @Input() formInputData: any;
+  @Input() currentFormSequence: any;
+  @Output() nextFormSequenceEvent:EventEmitter<any> = new EventEmitter<any>();
   
   constructor(private dynamicReactiveFormService: DynamicReactiveFormService, private fb: FormBuilder ){
     
@@ -40,7 +42,8 @@ export class DynamicReactiveFormsV2Component implements OnInit{
     this.createFormQuestions();
     this.createForm();
 
-    console.log(this.formInputData);
+    console.log(this.formQuestions);
+    console.log(this.currentFormSequence);
   }
 
 
@@ -52,7 +55,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
       this.getChosenAnswers(questions);
     });
 
-    console.log(this.isChosenQuestions);
+    // console.log(this.isChosenQuestions);
 
     for(let key in this.isChosenQuestions){
       let index = this.formQuestions.findIndex((item: any) => item.questionId === this.isChosenQuestions[key].questionId);
@@ -112,7 +115,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
           break;
         }
         case 'radio':{
-          this.form.addControl(question.questionId, new FormControl(question.isRequired ? Validators.required: null));
+          this.form.addControl(question.questionId, new FormControl("", question.isRequired ? Validators.required: null));
           for(let answers of question.answers){
             if(answers.isChosenAnswer === true){
               this.form.get(question.questionId)!.setValue(answers.answerText);
@@ -185,11 +188,23 @@ export class DynamicReactiveFormsV2Component implements OnInit{
     }
   }
   onSubmit(){
+
+    // fire all validations
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+    }else{
+      console.log("Go to next page" + this.currentFormSequence);
+
+      this.nextFormSequenceEvent.emit(this.currentFormSequence);
+    }
+
+
+    console.log(this.form);
     this.formResponse = [];
     const formControls = this.form.controls;
     for(let key in formControls){
-      if((typeof formControls[key].value) !== 'function'){
-        console.log(typeof formControls[key].value);
+      if(formControls[key].value !== ''){
+        // console.log(typeof formControls[key].value);
         let answerId = "";
         let questionId = "";
         if(key.includes("-")){
@@ -199,10 +214,11 @@ export class DynamicReactiveFormsV2Component implements OnInit{
           const question = this.formQuestions.filter((item: any) => item.questionId === key);
           questionId = key;
           for(const answer of question[0].answers){
-            if(answer.isChosenAnswer){
+            if((question[0].uiControlType === 'radio' || question[0].uiControlType === 'select' ) && answer.isChosenAnswer === true){
+              // console.log(question[0].answers);
               answerId = answer.answerId;
-            }else{
-              answerId = answer.answerId;
+            }else if (question[0].uiControlType === 'checkbox' || question[0].uiControlType === 'text' || question[0].uiControlType === 'number' || question[0].uiControlType === 'date' ){
+              answerId = question[0].answers[0].answerId;
             }
           }
         }
@@ -214,9 +230,9 @@ export class DynamicReactiveFormsV2Component implements OnInit{
             answerValue: formControls[key].value
           });
         }
-      }
+      } 
     }
-    console.log(this.form);
+    // console.log(this.form);
     console.log(this.formResponse);
   }
 

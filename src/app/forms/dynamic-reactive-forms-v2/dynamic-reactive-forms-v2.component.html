@@ -17,42 +17,46 @@
                         <ng-container *ngIf="['text', 'date', 'number'].includes(question.uiControlType)">
                             <div class="col-md-4 mb-4">
                                 <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  </label>
-                                <input [id]="question.questionId" [type]="question.uiControlType" [formControlName]="question.questionId" class="form-control">
+                                <input [id]="question.questionId" [ngClass]="form.get(question.questionId).invalid && form.get(question.questionId).touched? 'is-invalid' : '' "  [type]="question.uiControlType" [formControlName]="question.questionId" class="form-control">
+                                <div class="invalid-feedback d-block" *ngIf="form.get(question.questionId).invalid && form.get(question.questionId).touched">Please fill out this field.</div>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="question.uiControlType === 'select'">
                             <div class="col-md-4 mb-4">
                                <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  <!-- - {{question.questionId}}-->  </label> 
-                                <select [id]="question.questionId" class="form-select"  [formControlName]="question.questionId">
+                                <select [id]="question.questionId" class="form-select"  [formControlName]="question.questionId" [ngClass]="form.get(question.questionId).invalid && form.get(question.questionId).touched? 'is-invalid' : '' ">
                                     <ng-container *ngFor="let selectOptions of question.answers">
                                         <option [value]="selectOptions.answerId">{{selectOptions.answerText}}</option>
                                     </ng-container>
                                 </select>
+                                <div class="invalid-feedback d-block" *ngIf="form.get(question.questionId).invalid && form.get(question.questionId).touched">Please fill out this field.</div>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="question.uiControlType === 'radio'">
                             <div class="col-md-4 mb-4">
-                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
+                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  - {{question.questionId}}</label>
                                 <ng-container  *ngFor="let answers of question.answers">
                                     <div class="form-check form-check-inline ">
-                                        <input type="radio" [id]="answers.answerId" [value]="answers.answerText" [formControlName]="question.questionId" class="form-check-input" (change)="onFormChange(i, question, answers.answerId)">
+                                        <input type="radio" [id]="answers.answerId" [value]="answers.answerText" [formControlName]="question.questionId" [ngClass]="form.get(question.questionId).invalid &&form.get(question.questionId).touched? 'is-invalid' : '' " class="form-check-input" (change)="onFormChange(i, question, answers.answerId)">
                                         <label [for]="answers.answerId"  class="form-check-label">
-                                            {{answers.answerText}} - {{answers.isChosenAnswer}}
+                                            {{answers.answerText}}
                                         </label>
-                                      </div>
+                                    </div>
                                 </ng-container>
+                                <div class="invalid-feedback d-block" *ngIf="form.get(question.questionId).invalid && form.get(question.questionId).touched">Please fill out this field.</div>
                             </div>
                         </ng-container>
                         <ng-container *ngIf="question.uiControlType === 'checkbox'">
                             <div class="col-md-4 mb-4">
                                 <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
-                                <ng-container  *ngFor="let answers of question.answers">
+                                <ng-container *ngFor="let answers of question.answers">
                                     <div class="form-check form-check-inline">
-                                        <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId + '-' + answers.answerId" [value]="answers.answerText" class="form-check-input">
+                                        <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId + '-' + answers.answerId" [ngClass]="form.get(question.questionId + '-' + answers.answerId).invalid && form.get(question.questionId + '-' + answers.answerId).touched? 'is-invalid' : '' " [value]="answers.answerText" class="form-check-input">
                                         <label [for]="question.questionId + '-' + answers.answerId"  class="form-check-label">
                                             {{answers.answerText}} - {{question.questionId + '-' + answers.answerId}}
                                         </label>
-                                      </div>
+                                    </div>
+                                    <div class="invalid-feedback d-block" *ngIf="form.get(question.questionId + '-' + answers.answerId).invalid && form.get(question.questionId + '-' + answers.answerId).touched">Please fill out this field.</div>
                                 </ng-container>
                             </div>
                         </ng-container>
