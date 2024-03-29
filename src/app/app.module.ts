@@ -10,6 +10,8 @@ import { DynamicReactiveFormsComponent } from './forms/dynamic-reactive-forms/dy
 import { SingleOrderCreationComponent } from './forms/single-order-creation/single-order-creation.component';
 import { DynamicReactiveFormsV2Component } from './forms/dynamic-reactive-forms-v2/dynamic-reactive-forms-v2.component';
 import { OrderDetailsComponent } from './forms/order-details/order-details.component';
+import { VendorOrderDetailsComponent } from './forms/vendor-order-details/vendor-order-details.component';
+import { InternalUserOrderDetailsComponent } from './forms/internal-user-order-details/internal-user-order-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { OrderDetailsComponent } from './forms/order-details/order-details.compo
     DynamicReactiveFormsComponent,
     SingleOrderCreationComponent,
     DynamicReactiveFormsV2Component,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    VendorOrderDetailsComponent,
+    InternalUserOrderDetailsComponent
   ],
   imports: [
     BrowserModule,

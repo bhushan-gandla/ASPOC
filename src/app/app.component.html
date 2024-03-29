@@ -3,16 +3,16 @@
     <div class="collapse navbar-collapse mx-5 mx-xxl-6" id="primaryNavBar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['hardcoded-forms']" >Hardcoded</a>
+          <a class="nav-link" [routerLink]="['vendor-order-details']" >Vendor Order Details</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['dynamic-forms']">Dynamic</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['single-order-creation']">Single Order Creation</a>
+          <a class="nav-link" [routerLink]="['internal-user-order-details']">Internal Order Details</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['order-details']">Order Details</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['single-order-creation']">Single Order Creation</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['dynamic-reactive-forms-v2']">Dynamic Reactive Forms- V2</a>
@@ -24,21 +24,3 @@
 <div class="page-wrapper-1">
   <router-outlet></router-outlet>
 </div>
-
-
-<!-- <button class="btn btn-primary" (click)="onFetchData()">Fetch Data</button>
-
-<hr>
-<h4>Output data</h4>
-
-<form (ngSubmit)="onSubmit()" #pcrForm="ngForm">
-  <div [innerHTML]="importedDynamicFormsData"></div>
-  <button type="submit">Submit</button>
-</form> -->
-
-<!-- <form (ngSubmit)="onFormSubmit()" #pcrForm="ngForm">
-  <div *ngFor="let formData of importedDynamicFormsData">
-    <div class="row" [innerHTML]="formData.message"></div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
