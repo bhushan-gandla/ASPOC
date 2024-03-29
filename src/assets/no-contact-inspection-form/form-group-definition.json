@@ -63,7 +63,20 @@
             "formCode": "UT",
             "formTitle": "Utilities (Per Unit)",
             "sequenceNumber": 10,
-            "units": ["UNI1", "UNI2", "UNI3"]
+            "units": [
+                {
+                    "unitId": 123, 
+                    "unitName": "UNIT1"
+                },
+                {
+                    "unitId": 124, 
+                    "unitName": "UNIT2"
+                },
+                {
+                    "unitId": 125, 
+                    "unitName": "UNIT3"
+                }
+            ]
         }
     ],
     "tenant": {

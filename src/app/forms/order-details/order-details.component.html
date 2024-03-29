@@ -2,10 +2,29 @@
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <ng-container *ngFor="let form of formMenu; index as i">
-                    <button class="list-group-item list-group-item-action" [ngClass]="{'active': i === currentFormSelection}" (click)="loadForm(form, i)">
-                        {{form.formTitle}}
-                      </button>
+                <ng-container *ngFor="let formMenu of formMenus; index as i">
+                    <button *ngIf="!formMenu.units" class="list-group-item list-group-item-action" [ngClass]="{'active': i === currentFormSelection}" (click)="loadForm(formMenu.formCode, i)">
+                        {{formMenu.formTitle}}
+                    </button>
+                    <ng-container *ngIf="formMenu.units">
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex align-items-center">
+                                {{formMenu.formTitle}}
+
+                                <button type="button" class="btn btn-icon btn-sm btn-icon-primary-lighter ms-auto collapsed" aria-label="Right" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + formMenu.formCode" aria-expanded="false" [attr.aria-controls]="formMenu.formCode">
+                                    <span class="icon-chevron-up" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="collapse" [id]="formMenu.formCode">
+                                <div class="list-group mt-3">
+                                    <button class="list-group-item list-group-item-action" *ngFor="let unit of formMenu.units; index as j" [ngClass]="{'active': (i*i)+j === currentFormSelection}"  (click)="loadForm(unit.unitName, (i*i)+j)">
+                                        <!-- {{(i*i)+j}} -->
+                                        {{unit.unitName}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
                 </ng-container>
             </div>
         </div>

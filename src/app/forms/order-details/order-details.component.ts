@@ -10,7 +10,7 @@ export class OrderDetailsComponent implements OnInit{
   dataSubscriptionMenu: any;
   dataSubscriptionForm: any;
   formDefinition: any;
-  formMenu: any;
+  formMenus: any;
   form: any;
   currentFormSelection = 0;
 
@@ -18,9 +18,9 @@ export class OrderDetailsComponent implements OnInit{
     this.dataSubscriptionMenu = this.dynamicFormsMenuService.getMenuData().subscribe((formDefinitionData: any) =>{
       this.formDefinition = formDefinitionData;
       // console.log(this.formDefinition.forms);
-      this.formMenu = this.formDefinition.forms;
+      this.formMenus = this.formDefinition.forms;
 
-      this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(this.formMenu[this.currentFormSelection].formCode).subscribe((formData: any) => {
+      this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(this.formMenus[this.currentFormSelection].formCode).subscribe((formData: any) => {
         this.form = formData;
       });
     });
@@ -30,17 +30,17 @@ export class OrderDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(this.formMenu[this.currentFormSelection].formCode).subscribe((formData: any) => {
+    // this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(this.formMenus[this.currentFormSelection].formCode).subscribe((formData: any) => {
     //   this.form = formData;
     // });
     
   }
 
-  loadForm(formObject: any, index: any){
+  loadForm(formCode: any, index: any){
     this.form = null;
-    console.log(formObject.formCode);
+    console.log(formCode);
 
-    this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(formObject.formCode).subscribe((formData: any) => {
+    this.dataSubscriptionForm = this.dynamicFormsMenuService.getForm(formCode).subscribe((formData: any) => {
       this.form = formData;
       console.log(this.form);
     });
@@ -51,9 +51,9 @@ export class OrderDetailsComponent implements OnInit{
   onNextFormSequence(currentIndex: any){
     const nextIndex = currentIndex+1;
     console.log(nextIndex);
-    // console.log(this.formMenu[nextIndex]);
-    // console.log(nextIndex);
-    this.loadForm(this.formMenu[nextIndex], nextIndex);
+    // console.log(this.formMenus[nextIndex]);
+    // console.log(this.formMenus[nextIndex]);
+    this.loadForm(this.formMenus[nextIndex].formCode, nextIndex);
   }
   
 }

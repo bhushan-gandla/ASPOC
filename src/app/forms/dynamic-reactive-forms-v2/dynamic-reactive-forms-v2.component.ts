@@ -125,7 +125,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
         }
         case 'checkbox':{
           for(let answers of question.answers){
-            this.form.addControl(question.questionId+"-"+answers.answerId, new FormControl(answers.isChosenAnswer === true ? true : false, question.isRequired ? Validators.required: null));
+            this.form.addControl(question.questionId+"-"+answers.answerId, new FormControl(answers.isChosenAnswer === true ? true : "", question.isRequired ? Validators.required: null));
           }
           break;
         }

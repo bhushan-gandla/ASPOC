@@ -161,7 +161,7 @@
             {
               "answerId": "GICRA1",
               "answerText": "Yes",
-              "isChosenAnswer": false,
+              "isChosenAnswer": true,
               "questions": [
                 {
                   "questionId": "GIA1",

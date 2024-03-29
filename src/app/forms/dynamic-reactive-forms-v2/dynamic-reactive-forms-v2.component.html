@@ -9,7 +9,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Reactive Dynamic Form - {{formTitle}}</h4>
+                <h4 class="card-title">{{formTitle}}</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -34,7 +34,7 @@
                         </ng-container>
                         <ng-container *ngIf="question.uiControlType === 'radio'">
                             <div class="col-md-4 mb-4">
-                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  - {{question.questionId}}</label>
+                                <label class="d-block" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}} <!-- - {{question.questionId}}--></label>
                                 <ng-container  *ngFor="let answers of question.answers">
                                     <div class="form-check form-check-inline ">
                                         <input type="radio" [id]="answers.answerId" [value]="answers.answerText" [formControlName]="question.questionId" [ngClass]="form.get(question.questionId).invalid &&form.get(question.questionId).touched? 'is-invalid' : '' " class="form-check-input" (change)="onFormChange(i, question, answers.answerId)">
