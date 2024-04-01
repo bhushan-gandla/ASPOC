@@ -1,1 +1,44 @@
-<p>internal-user-order-details works!</p>
+<div class="order-layout">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-md-4 h-100">
+                <div class="card order-summary-card">
+                
+                </div>
+                <div class="card order-summary-card">
+                
+                </div>
+            </div>
+            <div class="col-md-8 h-100">
+                <div class="card h-100">
+                    <div class="card-header bg-transparent pb-0 card-primary-header">
+                      <ul class="nav nav-tabs card-primary-navigation" id="cardPrimaryNavigationTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="tabPrimary1Tab" data-bs-toggle="tab" href="#tabPrimary1" role="tab" aria-controls="tabPrimary1" aria-selected="true">
+                            Form
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="tabPrimary2Tab" data-bs-toggle="tab" href="#tabPrimary2" role="tab" aria-controls="tabPrimary2" aria-selected="false">
+                            Documents
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-content" id="cardPrimaryNavigationContent">
+                      <div class="tab-pane fade show active" id="tabPrimary1" role="tabpanel" aria-labelledby="tabPrimary1Tab">
+                        <div class="card-body">
+                            <app-order-details></app-order-details>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="tabPrimary2" role="tabpanel" aria-labelledby="tabPrimary2Tab">
+                        <div class="card-body">
+                            Tab 2 content
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

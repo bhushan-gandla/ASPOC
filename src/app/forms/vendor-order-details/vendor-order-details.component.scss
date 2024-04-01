@@ -1,0 +1,17 @@
+.order-summary{
+    height: calc(100vh - 2.5rem);
+    background-color: var(--exos-dark);
+    color: #fff;
+    width: 20%;
+    padding: 1.2rem  1.2rem;
+    .order-summary-item{
+        margin-bottom: 1rem;
+    }
+    .title{
+        font-size: 0.75rem;
+        color: var(--exos-gray-3);
+    }
+}
+.form-container{
+    width: 80%;
+}
