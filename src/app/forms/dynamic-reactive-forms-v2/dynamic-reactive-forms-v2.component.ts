@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynamicReactiveFormService } from 'src/app/shared/dynamic-reactive-form.service';
-
+import { dynamicFormsValidationRules } from 'src/app/shared/dynamic-forms-validation-rules';
 @Component({
   selector: 'app-dynamic-reactive-forms-v2',
   templateUrl: './dynamic-reactive-forms-v2.component.html',
@@ -73,7 +73,7 @@ export class DynamicReactiveFormsV2Component implements OnInit{
 
   getChosenAnswers(questions: any){
     questions.answers.forEach((answers: any, answerIndex: any)=>{
-      if(answers.isChosenAnswer === true && answers.questions.length > 0){
+      if(answers.isChosenAnswer && answers.questions.length > 0){
 
         this.isChosenQuestions.push({
           questionId: questions.questionId,
@@ -92,6 +92,8 @@ export class DynamicReactiveFormsV2Component implements OnInit{
             this.bookKeepingQuestions[questions.questionId].push(answers.questions[i].questionId+"-"+answers.answerId);
           }
         }
+
+        console.log(this.bookKeepingQuestions)
       }
     });
   }
@@ -109,8 +111,11 @@ export class DynamicReactiveFormsV2Component implements OnInit{
           break;
         }
         case 'select':{
+          this.form.addControl(question.questionId, new FormControl("" , question.isRequired ? Validators.required: null));
           for(let answers of question.answers){
-            this.form.addControl(question.questionId, new FormControl(answers.answerId, question.isRequired ? Validators.required: null));
+            if(answers.isChosenAnswer === true){
+              this.form.get(question.questionId)!.setValue( answers.answerId);
+            }
           }
           break;
         }
@@ -142,11 +147,25 @@ export class DynamicReactiveFormsV2Component implements OnInit{
           answer.isChosenAnswer = false;
         }
       }
+
+     
+
+
       for(const answer of answers){
         if(answer.isChosenAnswer === true && answer.answerId === answerAnswerId){
+
+          // if(answer.questions){
+          //   dynamicFormsValidationRules['GIHO'](this.bookKeepingQuestions);
+          // }
+
           this.getChosenAnswers(question);
           for(let key in this.isChosenQuestions){
             let index = this.formQuestions.findIndex((item: any) => item.questionId === this.isChosenQuestions[key].questionId);
+
+            // validation rules
+            if(dynamicFormsValidationRules[this.isChosenQuestions[key].questionId]){
+              dynamicFormsValidationRules[this.isChosenQuestions[key].questionId](this.formQuestions, question.questionId);
+            }
             index++;
             if (index !== -1) {
               this.formQuestions.splice(index, 0, ...this.isChosenQuestions[key].questions);
@@ -187,6 +206,10 @@ export class DynamicReactiveFormsV2Component implements OnInit{
       this.form.removeControl(questionId);
     }
   }
+
+  onSaveForLater(){
+    this.createOnSubmitResponse();
+  }
   onSubmit(){
 
     // fire all validations
@@ -198,7 +221,11 @@ export class DynamicReactiveFormsV2Component implements OnInit{
       this.nextFormSequenceEvent.emit(this.currentFormSequence);
     }
 
+    this.createOnSubmitResponse();
+   
+  }
 
+  createOnSubmitResponse(){
     console.log(this.form);
     this.formResponse = [];
     const formControls = this.form.controls;

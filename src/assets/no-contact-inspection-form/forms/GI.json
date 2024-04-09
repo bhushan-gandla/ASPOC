@@ -46,7 +46,7 @@
           "answers": [
             {
               "answerId": "GIID21",
-              "answerText": "GIID21",
+              "answerText": "2024-03-15",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -161,7 +161,7 @@
             {
               "answerId": "GICRA1",
               "answerText": "Yes",
-              "isChosenAnswer": true,
+              "isChosenAnswer": false,
               "questions": [
                 {
                   "questionId": "GIA1",
@@ -253,9 +253,21 @@
                   },
                   "answers": [
                     {
-                      "answerId": "GIST1",
-                      "answerText": "GIST1",
+                      "answerId": "GIST1P",
+                      "answerText": "PA",
                       "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "GIST1G",
+                      "answerText": "GA",
+                      "isChosenAnswer": false,
+                      "questions": []
+                    },
+                    {
+                      "answerId": "GIST1M",
+                      "answerText": "MN",
+                      "isChosenAnswer": true,
                       "questions": []
                     }
                   ],

@@ -25,6 +25,7 @@
                             <div class="col-md-4 mb-4">
                                <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  <!-- - {{question.questionId}}-->  </label> 
                                 <select [id]="question.questionId" class="form-select"  [formControlName]="question.questionId" [ngClass]="form.get(question.questionId).invalid && form.get(question.questionId).touched? 'is-invalid' : '' ">
+                                   
                                     <ng-container *ngFor="let selectOptions of question.answers">
                                         <option [value]="selectOptions.answerId">{{selectOptions.answerText}}</option>
                                     </ng-container>
@@ -53,7 +54,8 @@
                                     <div class="form-check form-check-inline">
                                         <input type="checkbox" [id]="question.questionId + '-' + answers.answerId" [formControlName]="question.questionId + '-' + answers.answerId" [ngClass]="form.get(question.questionId + '-' + answers.answerId).invalid && form.get(question.questionId + '-' + answers.answerId).touched? 'is-invalid' : '' " [value]="answers.answerText" class="form-check-input">
                                         <label [for]="question.questionId + '-' + answers.answerId"  class="form-check-label">
-                                            {{answers.answerText}} - {{question.questionId + '-' + answers.answerId}}
+                                            {{answers.answerText}} 
+                                            <!-- - {{question.questionId + '-' + answers.answerId}} -->
                                         </label>
                                     </div>
                                     <div class="invalid-feedback d-block" *ngIf="form.get(question.questionId + '-' + answers.answerId).invalid && form.get(question.questionId + '-' + answers.answerId).touched">Please fill out this field.</div>
@@ -63,7 +65,8 @@
                     </ng-container>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-end">
+                <button class="btn btn-outline-primary me-4" type="button" (click)="onSaveForLater()">Save for later</button>
                 <button class="btn btn-primary" type="submit" >Submit</button>
             </div>
         </div>
