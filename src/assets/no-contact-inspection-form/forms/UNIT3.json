@@ -4,31 +4,10 @@
   "unitId": "UNGI",
   "sections": [
     {
-      "sectionTitle": "General",
+      "sectionTitle": "General", 
       "sequenceNumber": 0,
       "sectionCode": "UTGNRL",
       "questions": [
-        {
-          "questionId": "UTW",
-          "questionText": "Water",
-          "questionType": "MessageOnly",
-          "isRequired": false,
-          "isReadOnly": false,
-          "uiControlType": "label",
-          "externalControlId": "215",
-          "canShow": false,
-          "template": {
-            "templateId": "MessageOnly",
-            "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
-          },
-          "answers": [
-            {
-              "answerId": "",
-              "isChosenAnswer": false,
-              "questions": []
-            }
-          ]
-        },
         {
           "questionId": "UTE",
           "questionText": "Electric",
@@ -45,95 +24,6 @@
           "answers": [
             {
               "answerId": "",
-              "isChosenAnswer": false,
-              "questions": []
-            }
-          ]
-        },
-        {
-          "questionId": "UTGA",
-          "questionText": "Gas",
-          "questionType": "MessageOnly",
-          "isRequired": false,
-          "isReadOnly": false,
-          "uiControlType": "label",
-          "externalControlId": "210",
-          "canShow": false,
-          "template": {
-            "templateId": "MessageOnly",
-            "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
-          },
-          "answers": [
-            {
-              "answerId": "",
-              "isChosenAnswer": false,
-              "questions": []
-            }
-          ]
-        },
-        {
-          "questionId": "UTSB2",
-          "questionText": "Shared Between Units:",
-          "questionType": "QuestionAndSingleAnswerRadioButton",
-          "isRequired": true,
-          "isReadOnly": false,
-          "uiControlType": "radio",
-          "externalControlId": "213",
-          "canShow": false,
-          "template": {
-            "templateId": "QuestionAndSingleAnswerRadioButton",
-            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
-          },
-          "answers": [
-            {
-              "answerId": "UTSB21",
-              "answerText": "Yes",
-              "isChosenAnswer": false,
-              "questions": []
-            },
-            {
-              "answerId": "UTSB22",
-              "answerText": "No",
-              "isChosenAnswer": false,
-              "questions": []
-            },
-            {
-              "answerId": "UTSB23",
-              "answerText": "Unknown",
-              "isChosenAnswer": false,
-              "questions": []
-            }
-          ]
-        },
-        {
-          "questionId": "UTSB1",
-          "questionText": "Shared Between Units:",
-          "questionType": "QuestionAndSingleAnswerRadioButton",
-          "isRequired": true,
-          "isReadOnly": false,
-          "uiControlType": "radio",
-          "externalControlId": "209",
-          "canShow": false,
-          "template": {
-            "templateId": "QuestionAndSingleAnswerRadioButton",
-            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
-          },
-          "answers": [
-            {
-              "answerId": "UTSB11",
-              "answerText": "Yes",
-              "isChosenAnswer": false,
-              "questions": []
-            },
-            {
-              "answerId": "UTSB12",
-              "answerText": "No",
-              "isChosenAnswer": false,
-              "questions": []
-            },
-            {
-              "answerId": "UTSB13",
-              "answerText": "Unknown",
               "isChosenAnswer": false,
               "questions": []
             }
@@ -636,6 +526,61 @@
           ]
         },
         {
+          "questionId": "UTSB2",
+          "questionText": "Shared Between Units:",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "213",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "UTSB21",
+              "answerText": "Yes",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "UTSB22",
+              "answerText": "No",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "UTSB23",
+              "answerText": "Unknown",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "questionId": "UTGA",
+          "questionText": "Gas",
+          "questionType": "MessageOnly",
+          "isRequired": false,
+          "isReadOnly": false,
+          "uiControlType": "label",
+          "externalControlId": "210",
+          "canShow": false,
+          "template": {
+            "templateId": "MessageOnly",
+            "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
+          },
+          "answers": [
+            {
+              "answerId": "",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        },
+        {
           "questionId": "UTGAA",
           "questionText": "Gas Active:",
           "questionType": "QuestionAndSingleAnswerRadioButton",
@@ -1128,6 +1073,61 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "questionId": "UTSB1",
+          "questionText": "Shared Between Units:",
+          "questionType": "QuestionAndSingleAnswerRadioButton",
+          "isRequired": true,
+          "isReadOnly": false,
+          "uiControlType": "radio",
+          "externalControlId": "209",
+          "canShow": false,
+          "template": {
+            "templateId": "QuestionAndSingleAnswerRadioButton",
+            "templateName": "<div class=\"form-group col-sm-6 {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\" {% if Question.FieldType %} data-type=\"{{Question.FieldType}}\"   {% endif %} ><label  for=\"{{Question.QuestionId}}\" class='col-sm-12 dynamicFormTitle-1'>{{Question.QuestionText}}</label><div class='controls'>{% for answer in Question.Answers %}<div class=\"spacedControls float-start\"><div class=\"radio\"><label class='control-label dynamicFormLabel'><input type=\"radio\" value=\"{{answer.AnswerText}}\" name=\"{{Question.QuestionId}}\" data-answerid=\"{{answer.AnswerId}}\" {% if Question.IsRequired %} required {% endif %}{% if Question.IsReadOnly %} disabled {% endif %}{% if answer.QuestionIds != '' %} data-triggerId=\"{{answer.QuestionIds}}\" {% endif %} {% if answer.IsChosenAnswer %} checked{% endif %}>{{answer.AnswerText}}</label></div></div>{% endfor %} </div></div>"
+          },
+          "answers": [
+            {
+              "answerId": "UTSB11",
+              "answerText": "Yes",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "UTSB12",
+              "answerText": "No",
+              "isChosenAnswer": false,
+              "questions": []
+            },
+            {
+              "answerId": "UTSB13",
+              "answerText": "Unknown",
+              "isChosenAnswer": false,
+              "questions": []
+            }
+          ]
+        },
+        {
+          "questionId": "UTW",
+          "questionText": "Water",
+          "questionType": "MessageOnly",
+          "isRequired": false,
+          "isReadOnly": false,
+          "uiControlType": "label",
+          "externalControlId": "215",
+          "canShow": false,
+          "template": {
+            "templateId": "MessageOnly",
+            "templateName": "<div class=\"clearfix\"></div><div class=\" {% if Question.Parent %} hide {% endif %}\" {% if Question.CanShow %} data-showQuestion=\"true\" {% endif %} data-questionid=\"{{Question.QuestionId}}{% if Question.Parent %}_{{Question.Parent.AnswerId}}{% endif %}\"><h3>{{Question.QuestionText}}</h3></div><div class=\"clearfix\"></div>"
+          },
+          "answers": [
+            {
+              "answerId": "",
+              "isChosenAnswer": false,
+              "questions": []
             }
           ]
         },

@@ -14,6 +14,12 @@
             <div class="card-body">
                 <div class="row">
                     <ng-container *ngFor="let question of formQuestions; index as i">
+                        <h5 class="section-title t-18 text-dark" *ngIf="question.uiControlType === 'sectionHeading'">
+                            {{question.questionText}}
+                        </h5>
+                        <h5 class="section-title t-14 text-dark" *ngIf="question.uiControlType === 'label'">
+                            {{question.questionText}}
+                        </h5>
                         <ng-container *ngIf="['text', 'date', 'number'].includes(question.uiControlType)">
                             <div class="col-md-4 mb-4">
                                 <label [for]="question.questionId" [ngClass]="question.isRequired? 'required-field' : '' ">{{question.questionText}}  </label>
